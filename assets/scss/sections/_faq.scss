@@ -1,0 +1,104 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Faq Section
+--------------------------------------------------------------*/
+.faq {
+  padding-top: 71px;
+  padding-bottom: 60px;
+
+  .faq-container {
+    margin-top: 15px;
+
+    .faq-item {
+      position: relative;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+      overflow: hidden;
+      transition: 0.3s;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0 30px 0 32px;
+        transition: 0.3s;
+        cursor: pointer;
+
+        span {
+          color: var(--accent-color);
+          padding-right: 5px;
+        }
+
+        &:hover {
+          color: var(--accent-color);
+        }
+      }
+
+      .faq-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: 0.3s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+
+        p {
+          margin-bottom: 0;
+          overflow: hidden;
+        }
+      }
+
+      .faq-icon {
+        position: absolute;
+        top: 22px;
+        left: 20px;
+        font-size: 20px;
+        line-height: 0;
+        transition: 0.3s;
+        color: var(--accent-color);
+      }
+
+      .faq-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 16px;
+        line-height: 0;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--accent-color);
+        }
+      }
+    }
+
+    .faq-active {
+      background-color: var(--heading-color);
+      transition: 0.3s;
+
+      h3,
+      h3:hover,
+      .faq-toggle,
+      .faq-icon,
+      .faq-content {
+        color: var(--contrast-color);
+      }
+
+      .faq-content {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        opacity: 1;
+        padding-top: 10px;
+      }
+
+      .faq-toggle {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

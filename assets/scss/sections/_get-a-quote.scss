@@ -1,0 +1,74 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Get A Quote Section
+--------------------------------------------------------------*/
+.get-a-quote {
+  .quote-bg {
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .php-email-form {
+    background: color-mix(in srgb, var(--default-color), transparent 97%);
+    padding: 30px;
+    height: 100%;
+
+    @media (max-width: 575px) {
+      padding: 20px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0 0 0;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    input[type=text],
+    input[type=email],
+    textarea {
+      font-size: 14px;
+      padding: 10px 15px;
+      box-shadow: none;
+      border-radius: 0;
+      color: var(--default-color);
+      background-color: color-mix(in srgb, var(--background-color), transparent 20%);
+      border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+
+      &:focus {
+        border-color: var(--accent-color);
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--default-color), transparent 70%);
+      }
+    }
+
+    button[type="submit"] {
+      color: var(--contrast-color);
+      background: var(--accent-color);
+      border: 0;
+      padding: 10px 30px;
+      transition: 0.4s;
+      border-radius: 4px;
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), transparent 20%);
+      }
+    }
+  }
+}
