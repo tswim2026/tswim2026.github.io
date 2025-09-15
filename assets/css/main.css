@@ -1,3 +1,120 @@
+/* Rounded mask for embedded maps */
+.map-rounded {
+  border-radius: 14px;
+  overflow: hidden;
+}
+.map-rounded iframe {
+  display: block;
+}
+/* Accent button (rounded orange pill) */
+.btn-accent {
+  background-color: #f4a65f;
+  border-color: #f4a65f;
+  color: #fff;
+}
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: #ee9a4c;
+  border-color: #ee9a4c;
+  color: #fff;
+}
+
+/* Accent outline button (rounded orange pill with outline) */
+.btn-accent-outline {
+  background-color: transparent;
+  border: 2px solid #f4a65f;
+  color: #f4a65f;
+}
+.btn-accent-outline:hover,
+.btn-accent-outline:focus {
+  background-color: rgba(244, 166, 95, 0.08);
+  border-color: #ee9a4c;
+  color: #ee9a4c;
+}
+
+/* Soft notice/card style (rounded, subtle orange) */
+.note-soft {
+  background-color: #fffbf6;
+  border: 0;
+  color: inherit;
+  border-radius: 14px;
+}
+.note-soft .title {
+  color: #333;
+}
+.note-soft .price {
+  color: #d4822e;
+  font-weight: 700;
+}
+
+/* Make buttons full-width on mobile/tablet (<960px) */
+@media (max-width: 960px) {
+  .btn-mobile-full {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .stack-mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Committee two-column responsive layout */
+.committee-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 992px) {
+  .committee-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.committee-category {
+  padding: 0.5rem 0;
+}
+
+/* Speaker card grid and image cropping */
+.speaker-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  height: 100%;
+}
+.speaker-card .pic {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+.speaker-card .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.speaker-card .member-info {
+  display: flex;
+  flex-direction: column;
+}
+.speaker-card .member-info ul {
+  margin: 0 0 8px 18px;
+  padding: 0;
+  text-align: left;
+}
+.speaker-card h4 {
+  margin: 0 0 8px 0;
+}
+.speaker-card hr {
+  margin: 8px 0 12px 0;
+}
 @charset "UTF-8";
 
 /*--------------------------------------------------------------
@@ -2368,7 +2485,7 @@ section,
 }
 
 .price {
-  margin: 1.5rem 0;
+  margin: 0;
 }
 
 .currency {
