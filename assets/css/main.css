@@ -115,6 +115,17 @@
 .speaker-card hr {
   margin: 8px 0 12px 0;
 }
+
+/* Keynote Speaker Specific Styles */
+.keynote-speaker-card {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.keynote-speaker-info {
+  flex: 1;
+  text-align: center;
+}
 @charset "UTF-8";
 
 /*--------------------------------------------------------------
