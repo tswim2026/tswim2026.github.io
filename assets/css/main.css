@@ -1029,7 +1029,7 @@ section,
   font-size: 0.95rem;
 }
 
-.information .tos-content .content-section .prohibited-list {
+.information .tos-content .content-section .dates-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -1037,12 +1037,12 @@ section,
 }
 
 @media (max-width: 576px) {
-  .information .tos-content .content-section .prohibited-list {
+  .information .tos-content .content-section .dates-list {
     grid-template-columns: 1fr;
   }
 }
 
-.information .tos-content .content-section .prohibited-list .prohibited-item {
+.information .tos-content .content-section .dates-list .date-item {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1051,12 +1051,12 @@ section,
   border-radius: 12px;
 }
 
-.information .tos-content .content-section .prohibited-list .prohibited-item i {
+.information .tos-content .content-section .dates-list .date-item i {
   color: #dc3545;
   font-size: 1.2rem;
 }
 
-.information .tos-content .content-section .prohibited-list .prohibited-item span {
+.information .tos-content .content-section .dates-list .date-item span {
   font-size: 0.95rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
