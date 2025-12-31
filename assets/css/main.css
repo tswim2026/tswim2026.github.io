@@ -929,6 +929,55 @@ section,
   margin: 0 auto;
 }
 
+.information .tos-header h2.theme-title {
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--heading-color);
+  font-weight: 600;
+  max-width: 700px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+.theme-description {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.about-tswim-callout {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.about-tswim-callout p {
+  margin: 0;
+}
+
+.read-more-toggle {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-left: 0.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.read-more-toggle:hover {
+  text-decoration: underline;
+}
+
 .tbd-placeholder {
   display: inline-flex;
   align-items: center;
