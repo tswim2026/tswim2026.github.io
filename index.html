@@ -27,7 +27,7 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css?v=1.0.2" rel="stylesheet">
+  <link href="assets/css/main.css?v=1.0.3" rel="stylesheet">
 
 </head>
 
@@ -169,19 +169,89 @@
           <!-- Call for Papers -->
           <div id="call-for-papers" class="content-section pt-5">
             <h3 class="text-center">Call for Papers</h3>
-            <p class="text-center">The call for papers will be announced on January 15, 2026.</p>
-            <div class="text-center mt-4">
-              <h5 class="mb-3" style="color: var(--heading-color);">Paper Templates</h5>
-              <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="assets/template/TSWIM-2025-Paper-Template.docx" download class="btn btn-md rounded-pill fw-bold px-4 py-2 btn-accent-outline"><i class="bi bi-download me-2"></i>Full / Short Paper</a>
-                <a href="assets/template/TSWIM-2025-ExtendedAbstract-Template.docx" download class="btn btn-md rounded-pill fw-bold px-4 py-2 btn-accent-outline"><i class="bi bi-download me-2"></i>Extended Abstract</a>
+            <p class="text-center cfp-intro">We welcome submissions at different stages of the research journey.<br>Please select the format that best fits your current status:</p>
+
+            <div class="paper-types-container">
+              <div class="paper-type-card">
+                <div class="paper-type-header">
+                  <h4>Full Paper</h4>
+                  <span class="page-limit">up to 15 pages (all inclusive)</span>
+                </div>
+                <p class="paper-type-desc">Completed studies with data analysis and discussion. Primarily intended for the <strong>Presentation Session</strong>.</p>
+                <a href="assets/template/TSWIM-2025-Paper-Template.docx" download class="btn btn-sm rounded-pill fw-bold btn-accent-outline card-template-btn"><i class="bi bi-download me-2"></i>Full/Short Paper Template</a>
               </div>
-              <div class="mt-4 text-start mx-auto" style="max-width: 600px;">
-                <ul class="list-unstyled text-muted small">
-                  <li class="mb-2"><i class="bi bi-info-circle me-2"></i>Download the relevant template, paste in your paper content, and apply existing styles</li>
-                  <li class="mb-2"><i class="bi bi-file-text me-2"></i>Max limits — Full: 15 pgs | Short: 8 pgs | Extended abstract: 2 pgs + 1 pg refs</li>
-                  <li class="mb-2"><i class="bi bi-incognito me-2"></i>Submissions must be anonymous for review</li>
-                </ul>
+
+              <div class="paper-type-card">
+                <div class="paper-type-header">
+                  <h4>Short Paper</h4>
+                  <span class="page-limit">up to 8 pages (all inclusive)</span>
+                </div>
+                <p class="paper-type-desc">Work-in-progress with preliminary data or results. Upon review, may be assigned to <strong>Presentation Session</strong> or <strong>Research Incubator Session</strong>.</p>
+                <a href="assets/template/TSWIM-2025-Paper-Template.docx" download class="btn btn-sm rounded-pill fw-bold btn-accent-outline card-template-btn"><i class="bi bi-download me-2"></i>Full/Short Paper Template</a>
+              </div>
+
+              <div class="paper-type-card">
+                <div class="paper-type-header">
+                  <h4>Extended Abstract</h4>
+                  <span class="page-limit">up to 2 pages + 1 page refs</span>
+                </div>
+                <p class="paper-type-desc">High-potential research ideas, novel research designs, or high-risk proposals. Intended for <strong>Research Incubator Session</strong>.</p>
+                <a href="assets/template/TSWIM-2025-ExtendedAbstract-Template.docx" download class="btn btn-sm rounded-pill fw-bold btn-accent-outline card-template-btn"><i class="bi bi-download me-2"></i>Extended Abstract Template</a>
+              </div>
+            </div>
+
+            <div class="text-center mt-4">
+              <ul class="list-unstyled text-muted small cfp-notes">
+                <li><i class="bi bi-info-circle me-2"></i>Download the relevant template, paste in your paper content, and apply existing styles</li>
+                <li><i class="bi bi-incognito me-2"></i>Submissions must be anonymous for review</li>
+              </ul>
+            </div>
+
+            <!-- Session Formats -->
+            <div class="session-formats mt-5">
+              <h4 class="text-center mb-4">Session Formats</h4>
+              <div class="session-formats-container">
+                <div class="session-format-card">
+                  <h5><i class="bi bi-easel me-2"></i>Presentation Session</h5>
+                  <p>Session for polished manuscripts targeting leading journals in Information Systems. Each paper will receive generous time for presentation and discussion, creating space for serious scholarly exchange. Feedback targets theoretical contribution, framing choices, and anticipated reviewer reactions.</p>
+                  <p class="session-suited"><strong>Best suited for:</strong> Authors who want deep, candid feedback from senior scholars at a critical stage of revision.</p>
+                </div>
+
+                <div class="session-format-card">
+                  <h5><i class="bi bi-lightbulb me-2"></i>Research Incubator Session</h5>
+                  <p>A small-group, developmental session in an <strong>Interactive Forum</strong> format. Authors briefly present their core idea and identify bottlenecks. Senior scholars serve as strategic advisors focused on unblocking research—clarifying next steps, sharpening theoretical lenses, and strengthening project trajectories.</p>
+                  <p class="session-suited"><strong>Best suited for:</strong> Projects with compelling phenomena or early insights facing walls in theory building, framing, or design.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Why Submit to TSWIM -->
+            <div class="why-submit mt-5">
+              <h4 class="text-center mb-4">Why Submit to TSWIM?</h4>
+              <div class="why-submit-features">
+                <div class="why-feature">
+                  <div class="why-feature-icon"><i class="bi bi-journal-x"></i></div>
+                  <div class="why-feature-content">
+                    <h6>Non-Archival Workshop</h6>
+                    <p>Papers are NOT published in proceedings, ensuring you retain full copyright to submit to journals later.</p>
+                  </div>
+                </div>
+
+                <div class="why-feature">
+                  <div class="why-feature-icon"><i class="bi bi-people"></i></div>
+                  <div class="why-feature-content">
+                    <h6>Editors as Mentors</h6>
+                    <p>Participants engage directly with Editors who act as mentors, not just evaluators.</p>
+                  </div>
+                </div>
+
+                <div class="why-feature">
+                  <div class="why-feature-icon"><i class="bi bi-shield-check"></i></div>
+                  <div class="why-feature-content">
+                    <h6>Low-Pressure, High-Trust Environment</h6>
+                    <p>Scholars gain constructive guidance, fresh perspectives, and opportunities for collaboration without reputational risk.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -201,18 +271,29 @@
             </ol>
           </div>
 
-          <!-- Registration -->
-          <div id="registration" class="content-section py-4">
-            <h3 class="text-center">Registration</h3>
-            <div class="text-center">
-              <div class="tbd-placeholder">
-                <i class="bi bi-clock-history"></i>
-                <span>To be announced</span>
+          <!-- Submission & Registration -->
+          <div class="content-section py-4">
+            <div class="action-cards-container">
+              <!-- Submission -->
+              <div id="submission" class="action-card">
+                <h3><i class="bi bi-send me-2"></i>Submission</h3>
+                <p class="action-card-status">Opening February 15, 2026</p>
+                <a href="#" class="btn btn-md rounded-pill fw-bold btn-accent-outline disabled d-none"><i class="bi bi-box-arrow-up-right me-2"></i>Submit Paper</a>
+              </div>
+
+              <!-- Registration -->
+              <div id="registration" class="action-card">
+                <h3><i class="bi bi-person-plus me-2"></i>Registration</h3>
+                <p class="action-card-status">To be announced</p>
+                <a href="#" class="btn btn-md rounded-pill fw-bold btn-accent-outline disabled d-none"><i class="bi bi-box-arrow-up-right me-2"></i>Register</a>
               </div>
             </div>
-            <p class="text-center d-none">Early Registration (by June 15) is strongly encouraged, because it ensures receipts ready for you on-site. If you register on-site, the official receipt-making process may take two weeks.</p>
+          </div>
 
-            <div class="container my-4 d-none">
+          <!-- Hidden Registration Details (for future use) -->
+          <div class="d-none">
+            <p class="text-center">Early Registration (by June 15) is strongly encouraged, because it ensures receipts ready for you on-site. If you register on-site, the official receipt-making process may take two weeks.</p>
+            <div class="container my-4">
               <div class="row g-3 justify-content-center">
                 <div class="col-12">
                   <div class="note-soft p-4 d-flex">
@@ -239,10 +320,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="text-center mt-3 d-none">
-              <a href="#" target="_blank" rel="noopener" class="btn btn-lg rounded-pill fw-bold px-4 py-3 btn-accent btn-mobile-full">Go To Registration <i class="bi bi-arrow-right-short ms-2"></i></a>
             </div>
           </div>
         </div>
@@ -785,7 +862,7 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js?v=1.0.2"></script>
+  <script src="assets/js/main.js?v=1.0.3"></script>
 
 </body>
 

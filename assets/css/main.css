@@ -978,6 +978,239 @@ section,
   text-decoration: underline;
 }
 
+/* Call for Papers - Paper Types */
+.cfp-intro {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.paper-types-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .paper-types-container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+.paper-type-card {
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.paper-type-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.paper-type-header {
+  margin-bottom: 0.75rem;
+}
+
+.paper-type-header h4 {
+  color: var(--heading-color);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+}
+
+.paper-type-header .page-limit {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.paper-type-desc {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 1rem;
+}
+
+.card-template-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.cfp-notes {
+  display: inline-block;
+  text-align: left;
+}
+
+.cfp-notes li {
+  margin-bottom: 0.5rem;
+}
+
+/* Session Formats */
+.session-formats h4,
+.why-submit h4 {
+  color: var(--heading-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.session-formats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .session-formats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.session-format-card {
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent-color);
+}
+
+.session-format-card h5 {
+  color: var(--heading-color);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.session-format-card h5 i {
+  color: var(--accent-color);
+}
+
+.session-format-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  margin-bottom: 0.75rem;
+}
+
+.session-format-card p:last-child {
+  margin-bottom: 0;
+}
+
+.session-format-card .session-suited {
+  font-size: 0.9rem;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Why Submit to TSWIM */
+.why-submit-features {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-feature {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.why-feature:last-child {
+  margin-bottom: 0;
+}
+
+.why-feature-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-feature-icon i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.why-feature-content h6 {
+  color: var(--heading-color);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.why-feature-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin: 0;
+}
+
+/* Submission & Registration Action Cards */
+.action-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .action-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.action-card {
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.action-card h3 {
+  color: var(--heading-color);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.action-card h3 i {
+  color: var(--accent-color);
+}
+
+.action-card-status {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.action-card .btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .tbd-placeholder {
   display: inline-flex;
   align-items: center;
