@@ -2129,14 +2129,14 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Host Section
+# Sponsors Section
 --------------------------------------------------------------*/
-.host {
+.sponsors {
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
-.host .client-item {
+.sponsors .sponsor-item {
   padding: 1.5rem;
   text-align: center;
   height: 100%;
@@ -2149,29 +2149,29 @@ section,
   justify-content: center;
 }
 
-.host .client-item img {
+.sponsors .sponsor-item img {
   max-width: 100%;
   transition: all 0.3s ease-in-out;
 }
 
-.host .client-item:hover {
+.sponsors .sponsor-item:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
 }
 
-.host .client-item:hover img {
+.sponsors .sponsor-item:hover img {
   filter: grayscale(0);
   opacity: 1;
 }
 
 @media (max-width: 1199px) {
-  .host .client-item {
+  .sponsors .sponsor-item {
     padding: 1.25rem;
   }
 }
 
 @media (max-width: 767px) {
-  .host .client-item {
+  .sponsors .sponsor-item {
     padding: 1rem;
   }
 }
@@ -3430,27 +3430,27 @@ section,
 }
 
 /* Host Section Client Links Styling */
-.client-item a {
+.sponsor-item a {
   display: block;
   text-decoration: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.client-item a:hover {
+.sponsor-item a:hover {
   transform: scale(1.05);
   opacity: 0.8;
 }
 
-.client-item a:focus {
+.sponsor-item a:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
 
-.client-item img {
+.sponsor-item img {
   transition: filter 0.3s ease;
 }
 
-.client-item a:hover img {
+.sponsor-item a:hover img {
   filter: brightness(1.1);
 }
 
