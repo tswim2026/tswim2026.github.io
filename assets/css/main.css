@@ -770,7 +770,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 40px 0;
   scroll-margin-top: 100px;
   overflow: clip;
 }
@@ -1161,6 +1161,11 @@ section,
 }
 
 /* Submission & Registration Action Cards */
+.content-section:has(.action-cards-container) {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .action-cards-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1348,7 +1353,7 @@ section,
 }
 
 .information .tos-content .content-section {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   scroll-margin-top: 100px;
 }
 
