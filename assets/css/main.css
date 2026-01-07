@@ -143,8 +143,8 @@
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #000000; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #0b5394; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #f6b26b; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #5A3D7A; /* Color for headings - deep muted purple */
+  --accent-color: #D4742C; /* Accent color - burnt orange to complement purple */
   --surface-color: #f3f6f4; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -167,10 +167,10 @@
 }
 
 .dark-background {
-  --background-color: #073763;
+  --background-color: #7B52A8; /* Muted purple for hero overlay */
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #0b5394;
+  --surface-color: #9662D0; /* Soft purple surface */
   --contrast-color: #ffffff;
 }
 
@@ -340,7 +340,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #0e1d34;
+  --background-color: #5A3D7A; /* Deep muted purple */
 }
 
 /*--------------------------------------------------------------
