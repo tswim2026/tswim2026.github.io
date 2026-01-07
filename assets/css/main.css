@@ -283,6 +283,15 @@ h6 {
   margin-right: 8px;
 }
 
+.header .logo img.navbar-logo {
+  max-height: 80px;
+  transition: max-height 0.3s ease;
+}
+
+.scrolled .header .logo img.navbar-logo {
+  max-height: 40px;
+}
+
 .header .logo h1 {
   font-size: 30px;
   margin: 0;
