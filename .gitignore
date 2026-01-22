@@ -1,4 +1,5 @@
 .claude/
+.venv/
 claude.md
 _wip/
 _dev/
