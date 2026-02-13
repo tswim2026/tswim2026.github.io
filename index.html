@@ -29,7 +29,10 @@
   <noscript><link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"></noscript>
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css?v=1.0.12" rel="stylesheet">
+  <link href="assets/css/main.css?v=1.0.13" rel="stylesheet">
+
+  <!-- Schedule CSS (scoped under .program-schedule) -->
+  <link href="assets/css/schedule.css?v=1.0.0" rel="stylesheet">
 
 </head>
 
@@ -47,7 +50,7 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#important-dates">Important Dates</a></li>
           <li><a href="#call-for-papers">Call for Papers</a></li>
-          <li><a href="#registration">Registration</a></li>
+          <li><a href="#call-for-papers">Submission</a></li>
           <li class="dropdown"><a href="#"><span>General Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#keynote-speakers">Keynote Speakers</a></li>
@@ -527,11 +530,237 @@
       <div class="container">
         <div class="tos-header text-center">
           <h2>Program</h2>
-          <div class="tbd-placeholder">
-            <i class="bi bi-clock-history"></i>
-            <span>To be announced</span>
-          </div>
         </div>
+
+        <div class="program-schedule-wrap">
+        <div class="program-schedule">
+          <table>
+            <colgroup>
+              <col class="col-time">
+              <col class="col-sessA">
+              <col class="col-sessB">
+              <col class="col-sessC">
+              <col class="col-location">
+            </colgroup>
+
+            <!-- ========== TITLE ========== -->
+            <tr class="title-row" style="height:15px;">
+              <td colspan="5" style="font-style:italic; font-size:11pt;">Venue: College of Technology Management, NTHU</td>
+            </tr>
+
+            <!-- Spacer -->
+            <tr class="spacer" style="height:15px;"><td colspan="5"></td></tr>
+
+            <!-- ========== DAY 1 ========== -->
+            <tr class="day-header" style="height:19px;">
+              <td colspan="5">Day 1: June 29, 2026 (Monday) — Board Meeting</td>
+            </tr>
+            <tr class="col-header" style="height:19.5px;">
+              <td>Time</td>
+              <td colspan="3">Activity</td>
+              <td>Location</td>
+            </tr>
+            <tr style="height:15px;">
+              <td class="time-cell">TBD</td>
+              <td colspan="3" class="center">Board Member Meeting &amp; Discussion + Speakers</td>
+              <td class="loc-cell"></td>
+            </tr>
+
+            <!-- Spacer -->
+            <tr class="spacer" style="height:15px;"><td colspan="5"></td></tr>
+
+            <!-- ========== DAY 2 ========== -->
+            <tr class="day-header" style="height:19px;">
+              <td colspan="5">Day 2: June 30, 2026 (Tuesday)</td>
+            </tr>
+            <tr class="col-header" style="height:19.5px;">
+              <td>Time</td>
+              <td>Session A (Rooms 903-908)</td>
+              <td>Session B (Rooms 903-908)</td>
+              <td>Session C (Rooms 903-908)</td>
+              <td>Location</td>
+            </tr>
+
+            <!-- Registration -->
+            <tr style="height:24px;">
+              <td class="time-cell">08:10-</td>
+              <td colspan="3" class="center">Registration</td>
+              <td class="loc-cell">1st Floor</td>
+            </tr>
+
+            <!-- Paper Session 1 (3 parallel) -->
+            <tr style="height:80px;">
+              <td class="time-cell">08:40-10:20</td>
+              <td class="sess-a">Paper Session 1A</td>
+              <td class="sess-b">Paper Session 1B</td>
+              <td class="sess-c">Paper Session 1C</td>
+              <td class="loc-cell">Parallel</td>
+            </tr>
+
+            <!-- Coffee Break -->
+            <tr style="height:20px;">
+              <td class="time-cell">10:20-10:40</td>
+              <td colspan="3" class="break">Coffee Break</td>
+              <td class="loc-cell">1st Floor</td>
+            </tr>
+
+            <!-- Opening Ceremony -->
+            <tr style="height:30px;">
+              <td class="time-cell">10:40-10:50</td>
+              <td colspan="3" class="center multiline">Opening Ceremony
+(President; 3 EICs on stage)</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Opening Remarks -->
+            <tr style="height:30px;">
+              <td class="time-cell">10:50-11:00</td>
+              <td colspan="3" class="center multiline">Opening Remarks
+(Hsiao-Hui Lee)</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Keynote: Suprateek -->
+            <tr style="height:40px;">
+              <td class="time-cell">11:00-11:50</td>
+              <td colspan="3" class="keynote">Keynote: Suprateek Sarker</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Lunch -->
+            <tr style="height:56px;">
+              <td class="time-cell">11:50-13:00</td>
+              <td colspan="3" class="break">Lunch</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+            <!-- Paper Session 2 (3 parallel) -->
+            <tr style="height:80px;">
+              <td class="time-cell">13:00-14:40</td>
+              <td class="sess-a">Paper Session 2A</td>
+              <td class="sess-b">Paper Session 2B</td>
+              <td class="sess-c">Paper Session 2C</td>
+              <td class="loc-cell">Parallel</td>
+            </tr>
+
+            <!-- Coffee Break -->
+            <tr style="height:20px;">
+              <td class="time-cell">14:40-15:00</td>
+              <td colspan="3" class="break">Coffee Break</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+            <!-- Panel 1 (3 parallel) -->
+            <tr style="height:40px;">
+              <td class="time-cell">15:00-15:50</td>
+              <td class="sess-a">Panel 1A</td>
+              <td class="sess-b">Panel 1B</td>
+              <td class="sess-c">Panel 1C</td>
+              <td class="loc-cell">Parallel</td>
+            </tr>
+
+            <!-- Opening Remarks -->
+            <tr style="height:30px;">
+              <td class="time-cell">15:50-16:00</td>
+              <td colspan="3" class="center multiline">Opening Remarks
+(TWAIS Founder Eldon Li and TWAIS President Cooper Ku)</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Keynote: Susan Brown -->
+            <tr style="height:40px;">
+              <td class="time-cell">16:00-16:50</td>
+              <td colspan="3" class="keynote">Keynote: Susan Brown</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Banquet -->
+            <tr style="height:96px;">
+              <td class="time-cell">18:00-20:00</td>
+              <td colspan="3" class="center">Banquet</td>
+              <td class="loc-cell">Hotel</td>
+            </tr>
+
+            <!-- Spacer -->
+            <tr class="spacer" style="height:15px;"><td colspan="5"></td></tr>
+
+            <!-- ========== DAY 3 ========== -->
+            <tr class="day-header" style="height:15.75px;">
+              <td colspan="5">Day 3: July 01, 2026 (Wednesday)</td>
+            </tr>
+            <tr class="col-header" style="height:34.5px;">
+              <td>Time</td>
+              <td>Session A (Rooms 903-908)</td>
+              <td>Session B (Rooms 903-908)</td>
+              <td>Session C (Rooms 903-908)</td>
+              <td>Location</td>
+            </tr>
+
+            <!-- Opening Remarks -->
+            <tr style="height:30px;">
+              <td class="time-cell">09:30-09:50</td>
+              <td colspan="3" class="center multiline">Opening Remarks
+(Dean Peng — online, live)</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Keynote: Monideepa -->
+            <tr style="height:40px;">
+              <td class="time-cell">09:50-10:40</td>
+              <td colspan="3" class="keynote">Keynote: Monideepa Tarafdar</td>
+              <td class="loc-cell">1F Auditorium</td>
+            </tr>
+
+            <!-- Coffee Break -->
+            <tr style="height:20px;">
+              <td class="time-cell">10:40-11:00</td>
+              <td colspan="3" class="break">Coffee Break</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+            <!-- Paper Session 3 (3 parallel) -->
+            <tr style="height:80px;">
+              <td class="time-cell">11:00-12:40</td>
+              <td class="sess-a">Paper Session 3A</td>
+              <td class="sess-b">Paper Session 3B</td>
+              <td class="sess-c">Paper Session 3C</td>
+              <td class="loc-cell">Parallel</td>
+            </tr>
+
+            <!-- Lunch -->
+            <tr style="height:48px;">
+              <td class="time-cell">12:40-13:40</td>
+              <td colspan="3" class="break">Lunch</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+            <!-- Talk + Panel 2 (3 parallel) -->
+            <tr style="height:48px;">
+              <td class="time-cell">13:40-14:40</td>
+              <td class="sess-a">Talk (20 min) + Panel 2A (40 min)</td>
+              <td class="sess-b">Talk (20 min) + Panel 2B (40 min)</td>
+              <td class="sess-c">Talk (20 min) + Panel 2C (40 min)</td>
+              <td class="loc-cell">Parallel</td>
+            </tr>
+
+            <!-- Coffee Break -->
+            <tr style="height:20px;">
+              <td class="time-cell">14:40-15:00</td>
+              <td colspan="3" class="break">Coffee Break</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+            <!-- Research Incubator -->
+            <tr style="height:80px;">
+              <td class="time-cell">15:00-16:40</td>
+              <td colspan="3" class="sess-a" style="text-align:center;">Research Incubator Sessions<br>(Up to 4 Parallel Sessions)</td>
+              <td class="loc-cell">9th Floor</td>
+            </tr>
+
+          </table>
+        </div><!-- /.program-schedule -->
+        </div><!-- /.program-schedule-wrap -->
+
       </div>
     </section><!-- /Program Section -->
 
@@ -788,7 +1017,7 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js?v=1.0.5"></script>
+  <script src="assets/js/main.js?v=1.0.6"></script>
 
 </body>
 

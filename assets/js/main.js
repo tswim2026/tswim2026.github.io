@@ -147,4 +147,18 @@
     });
   });
 
+  /**
+   * Schedule scroll hints — show/hide edge shadows based on scroll position
+   */
+  const scheduleEl = document.querySelector('.program-schedule');
+  const scheduleWrap = document.querySelector('.program-schedule-wrap');
+  if (scheduleEl && scheduleWrap) {
+    scheduleEl.addEventListener('scroll', function() {
+      const atStart = this.scrollLeft > 0;
+      const atEnd = this.scrollLeft + this.clientWidth >= this.scrollWidth - 1;
+      scheduleWrap.classList.toggle('scrolled-start', atStart);
+      scheduleWrap.classList.toggle('scrolled-end', atEnd);
+    });
+  }
+
 })();
