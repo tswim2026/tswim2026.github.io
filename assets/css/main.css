@@ -117,6 +117,10 @@
 }
 
 /* Keynote Speaker Specific Styles */
+.keynote-speakers .container {
+  max-width: 1000px;
+}
+
 .keynote-speaker-card {
   justify-content: flex-start;
   align-items: center;
@@ -124,7 +128,7 @@
 
 .keynote-speaker-info {
   flex: 1;
-  text-align: center;
+  text-align: left;
 }
 @charset "UTF-8";
 
@@ -2065,6 +2069,36 @@ section,
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
+#international-advisors .container {
+  max-width: 1000px;
+}
+
+#international-advisors .invitee-card .pic {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+}
+
+#international-advisors .invitee-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.invitee-role {
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.invitee-affiliation {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+#international-advisors .invitee-role,
+#international-advisors .invitee-affiliation {
+  font-size: 0.85rem;
+}
+
 .team .member-card {
   background-color: var(--surface-color);
   border-radius: 10px;
