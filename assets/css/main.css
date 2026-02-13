@@ -1225,6 +1225,40 @@ section,
   pointer-events: none;
 }
 
+/* Submission Banner */
+.submission-banner {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.submission-banner h4 {
+  color: var(--heading-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.submission-banner h4 i {
+  color: var(--accent-color);
+}
+
+.submission-banner-deadline {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Registration Banner */
+.registration-banner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .tbd-placeholder {
   display: inline-flex;
   align-items: center;
