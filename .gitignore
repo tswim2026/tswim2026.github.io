@@ -1,6 +1,7 @@
+.markdownlint.json
 .claude/
 .venv/
-claude.md
 _wip/
 _dev/
 _inbox/
+_data/

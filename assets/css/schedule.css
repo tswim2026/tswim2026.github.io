@@ -61,9 +61,9 @@
 }
 
 /* Session colors */
-.program-schedule .sess-a { background-color: #E2EFDA; text-align: left; }
-.program-schedule .sess-b { background-color: #FCE4D6; text-align: left; }
-.program-schedule .sess-c { background-color: #DDEBF7; text-align: left; }
+.program-schedule .sess-a { background-color: #E2EFDA; text-align: center; }
+.program-schedule .sess-b { background-color: #FCE4D6; text-align: center; }
+.program-schedule .sess-c { background-color: #DDEBF7; text-align: center; }
 
 /* Keynote */
 .program-schedule .keynote { background-color: #FFF2CC; font-weight: bold; }
@@ -71,6 +71,9 @@
 
 /* Break / Lunch */
 .program-schedule .break { background-color: #EDEDED; }
+
+/* Ceremony / Remarks */
+.program-schedule .ceremony { background-color: #fff; text-align: center; }
 
 /* Regular centered */
 .program-schedule .time-cell { text-align: center; white-space: nowrap; }
