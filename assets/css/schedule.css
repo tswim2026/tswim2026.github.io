@@ -10,11 +10,9 @@
   table-layout: fixed;
 }
 
-/* Column widths proportional to spreadsheet: A=100, B=200, C=200, D=200, E=130 */
+/* Column widths: 6 equal session sub-columns allow both 3-way and 2-way splits */
 .program-schedule col.col-time     { width: 13.5%; }
-.program-schedule col.col-sessA    { width: 27%;   }
-.program-schedule col.col-sessB    { width: 27%;   }
-.program-schedule col.col-sessC    { width: 27%;   }
+.program-schedule col.col-sess-sub { width: 13.5%; }  /* 6 × 13.5% ≈ 81% (same as old 3×27%) */
 .program-schedule col.col-location { width: 17.5%; }
 
 .program-schedule td,
