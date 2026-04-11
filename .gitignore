@@ -5,3 +5,10 @@ _wip/
 _dev/
 _inbox/
 _data/
+
+# AI tooling
+CLAUDE.local.md
+
+# Cross-machine sync manifests (e.g. Sideways)
+.swcopy
+.swsymlink
