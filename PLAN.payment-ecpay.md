@@ -74,7 +74,7 @@ One branch = one complete, testable path (registration form → ECPay payment �
 - [x] ~~Invoice vs receipt?~~ **Decision**: no 統一發票. ECPay acts as collection agent only (`InvoiceMark=N`); the organizing institute issues a **一般收據 (ordinary receipt)** to each paid attendee (PDF by email; optional paper on-site).
 - [ ] **Legal check**: confirm the collecting entity qualifies for 代收代付免開統一發票 (財政部). Needs sign-off from accounting before launch — **open**
 - [ ] **Collecting entity / issuing body**: continue "Taiwan Net Zero Resilient Supply Chain Alliance" or issue under NTHU name? Affects both reconciliation and whose chop / 抬頭 appears on the 收據 — **open**
-- [ ] **Receipt template**: signer, institute chop, bilingual labels, amount-in-國字大寫, serial numbering scheme (e.g. `TSWIM2026-0001`) — **open**
+- [ ] **Receipt template**: signer (name, address, contact, 内政部xxx/x/xx 台内團字第 xxx 號核准立), institute chop, date, serial numbering scheme (e.g. `TSWIM2026-0001`), tax number (抬頭、統一編號), content, price, payment method, note — **open**
 - [ ] **Issue timing**: per-payment auto-issue (Worker triggers PDF + email within minutes of ECPay callback) **vs** post-event batch (one serial run after the event). Per-payment gives better UX but needs serial-allocation concurrency handling — **open**
 - [ ] **Confirm**: 統編 / 抬頭 / 地址 fields collected on the form are used only for our 收據 and never sent to ECPay — **open (implementation check)**
 
