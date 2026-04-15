@@ -65,6 +65,31 @@ Payment links are shared by all attendees of the same ticket type, so the link a
 
 Rejected alternatives: keying by email (ECPay callback does not include attendee email), keying by amount (collisions when two people pay the same ticket type concurrently), keying by ECPay `MerchantTradeNo` alone (we do not control that value on pre-generated links).
 
+### Secrets & what is safe to put in the attendee email
+
+**`HashKey` / `HashIV` are backend-only, stored in Apps Script Script Properties.** They never appear in any URL, email, frontend bundle, or git-tracked file. Their only use is verifying the `CheckMacValue` on inbound ECPay callbacks inside `doPost`.
+
+The email sent to each attendee contains **no secrets**, only:
+
+```
+https://payment.ecpay.com.tw/SP/SPCheckOut?SPToken=<token>&CustomField1=TSWIM2026-abc12345
+```
+
+- `SPToken` — opaque reference to the payment-link record we created once in the ECPay vendor backend (ticket type + fixed amount). Not a signing key; cannot be used to impersonate the merchant.
+- `CustomField1` — our `OrderID`. Non-secret by design; just the join key between callback and Sheet row.
+
+**Threat model for a leaked payment link** (e.g. forwarded, screenshotted, scraped):
+
+| Action by attacker | Outcome |
+|---|---|
+| Pay using the link with their own card | Our order gets marked `paid`; no loss to us. |
+| Swap `CustomField1` to another valid `OrderID` | They pay for a stranger's registration; log-worthy but not a breach. |
+| Invent a fake `OrderID` | Callback hits `doPost`; row lookup fails → flagged `unknown`, not `paid`. |
+| Alter the URL to change amount | ECPay ignores URL-level amount tampering (`SPToken` is the source of truth); callback `TradeAmt` is cross-checked server-side anyway. |
+| Try to forge a `ReturnURL` POST | Blocked by `CheckMacValue` verification — requires `HashKey`, which never left Script Properties. |
+
+Worst-case outcome of a leaked link is reputational confusion, **not** financial loss or account takeover. This is why Plan A can safely run out of Apps Script with only a verification-side secret.
+
 ### Receipt handling
 
 Same legal posture as Plan B: **no 統一發票**. ECPay is collection agent only; the organizing institute issues an ordinary receipt (一般收據) later. Receipt fields (`抬頭`, `統一編號`, `地址`) are collected on the form and stored in the Sheet — never sent to ECPay.
