@@ -131,7 +131,7 @@
                   </div>
                 </div>
 
-                <form id="registerForm" method="GET" action="https://script.google.com/macros/s/AKfycbza7Zlyxola6-SfFKCkaBw5BCAOZ7HcbiJVy0UrFJ_JDT1-Xz1tzizk1IpgEAifRHyE/exec">
+                <form id="registerForm" method="GET" action="https://script.google.com/macros/s/AKfycbzNdNBXGVR5aj1Bf0tYhkeeIjoqTnM3WBGaDfRcRLGVBz7v4MRAmNkiSghuQC4aNtdN/exec">
                   <input type="hidden" name="action" value="register">
                   <input type="hidden" name="registrationType" value="standard">
 
@@ -452,10 +452,13 @@
       form.classList.add('was-validated');
       if (!form.checkValidity()) {
         e.preventDefault();
-        e.stopPropagation();
         var first = form.querySelector(':invalid');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
       }
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
     });
   </script>
 

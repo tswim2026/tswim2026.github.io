@@ -115,10 +115,11 @@
               <div class="result-icon fail"><i class="bi bi-x-circle-fill"></i></div>
               <h2>Payment Not Completed</h2>
               <p class="bilingual" style="font-size:1.1rem; color:#333; margin-bottom:4px;">交易未完成</p>
-              <p>The payment was not completed. You can try again from the registration page.</p>
-              <p class="bilingual">付款未完成，您可返回報名頁面重新操作。</p>
+              <p>The payment was not completed. You can retry without re-filling the form.</p>
+              <p class="bilingual">付款未完成，您可直接重新付款，無需重新填寫表單。</p>
               <div class="result-detail" id="failDetail"></div>
-              <a href="index.html" class="btn-home mt-3"><i class="bi bi-house me-2"></i>Back to TSWIM 2026</a>
+              <a href="#" id="retryBtn" class="btn-home mt-3" style="background:linear-gradient(135deg,#e65100,#bf360c)"><i class="bi bi-arrow-clockwise me-2"></i>Retry Payment 重新付款</a>
+              <div class="mt-2"><a href="index.html" style="color:#0b5394;font-size:0.9rem">Back to TSWIM 2026</a></div>
             </div>
 
             <!-- Default (direct visit / no params) -->
@@ -201,6 +202,13 @@
         ['Order ID', orderId],
         ['Error Code', rtnCode]
       ]));
+      // Set retry button link
+      if (orderId) {
+        var retryBtn = document.getElementById('retryBtn');
+        if (retryBtn) {
+          retryBtn.href = 'https://script.google.com/macros/s/AKfycbzNdNBXGVR5aj1Bf0tYhkeeIjoqTnM3WBGaDfRcRLGVBz7v4MRAmNkiSghuQC4aNtdN/exec?action=retry&orderId=' + encodeURIComponent(orderId);
+        }
+      }
     }
   </script>
 
