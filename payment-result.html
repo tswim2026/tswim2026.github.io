@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Payment Result — TSWIM 2026</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link href="assets/img/favicon.ico" rel="icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .result-page { padding-top: 120px; padding-bottom: 60px; min-height: 100vh; display: flex; align-items: center; }
+    .result-card { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 48px 40px; text-align: center; }
+    .result-icon { font-size: 4rem; margin-bottom: 16px; }
+    .result-icon.success { color: #27ae60; }
+    .result-icon.pending { color: #f39c12; }
+    .result-icon.fail { color: #e74c3c; }
+    .result-card h2 { font-family: var(--heading-font); font-weight: 700; color: #0b5394; margin-bottom: 12px; }
+    .result-card p { color: #555; font-size: 1rem; line-height: 1.6; }
+    .bilingual { font-size: 0.88rem; color: #888; }
+    .result-detail { background: #f8fbff; border-radius: 12px; padding: 16px 24px; margin: 20px 0; text-align: left; }
+    .result-detail .row-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.95rem; border-bottom: 1px solid #e8f0fe; }
+    .result-detail .row-item:last-child { border-bottom: none; }
+    .btn-home { background: linear-gradient(135deg, #0b5394, #073763); color: #fff; border: none; border-radius: 12px; padding: 12px 32px; font-weight: 600; font-size: 1rem; transition: all 0.2s; text-decoration: none; display: inline-block; }
+    .btn-home:hover { background: linear-gradient(135deg, #0e6ab8, #0b5394); color: #fff; transform: translateY(-1px); }
+
+    .header { --background-color: #0e1d34; padding: 10px 0; box-shadow: 0px 0 18px rgba(0,0,0,0.1); }
+    .header .logo img.navbar-logo { max-height: 40px; }
+
+    .state { display: none; }
+    .state.active { display: block; }
+
+    @media (max-width: 768px) {
+      .result-card { padding: 32px 20px; }
+      .result-page { padding-top: 100px; }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/tswim-logo-white-transparent.png" alt="TSWIM 2026" class="navbar-logo">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#important-dates">Important Dates</a></li>
+          <li><a href="index.html#call-for-papers">Call for Papers</a></li>
+          <li class="dropdown"><a href="#"><span>General Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="index.html#keynote-speakers">Keynote Speakers</a></li>
+              <li><a href="index.html#program">Program</a></li>
+              <li><a href="index.html#committee">Committee</a></li>
+              <li><a href="index.html#travel-information">Travel Information</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#sponsors">Sponsors</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="result-page">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 col-xl-6">
+
+            <!-- Success -->
+            <div class="result-card state" id="stateSuccess">
+              <div class="result-icon success"><i class="bi bi-check-circle-fill"></i></div>
+              <h2>Payment Successful</h2>
+              <p class="bilingual" style="font-size:1.1rem; color:#333; margin-bottom:4px;">交易完成</p>
+              <p>Your registration is confirmed! A confirmation email will be sent shortly.</p>
+              <p class="bilingual">報名已確認！確認信將於稍後寄至您的電子郵件。</p>
+              <div class="result-detail" id="successDetail"></div>
+              <a href="index.html" class="btn-home mt-3"><i class="bi bi-house me-2"></i>Back to TSWIM 2026</a>
+            </div>
+
+            <!-- Pending (ATM) -->
+            <div class="result-card state" id="statePending">
+              <div class="result-icon pending"><i class="bi bi-clock-fill"></i></div>
+              <h2>Order Created</h2>
+              <p class="bilingual" style="font-size:1.1rem; color:#333; margin-bottom:4px;">訂單成立</p>
+              <p>Please complete the bank transfer within the deadline below.</p>
+              <p class="bilingual">請於期限內完成匯款。</p>
+              <div class="result-detail" id="pendingDetail"></div>
+              <p style="font-size:0.88rem; color:#e65100; margin-top:16px;">
+                <i class="bi bi-exclamation-triangle me-1"></i>
+                Registration is confirmed once payment is received (up to 1 business day).
+                <span class="bilingual d-block">匯款入帳後即完成報名（最多需1個工作天）。</span>
+              </p>
+              <a href="index.html" class="btn-home mt-3"><i class="bi bi-house me-2"></i>Back to TSWIM 2026</a>
+            </div>
+
+            <!-- Failed -->
+            <div class="result-card state" id="stateFail">
+              <div class="result-icon fail"><i class="bi bi-x-circle-fill"></i></div>
+              <h2>Payment Not Completed</h2>
+              <p class="bilingual" style="font-size:1.1rem; color:#333; margin-bottom:4px;">交易未完成</p>
+              <p>The payment was not completed. You can try again from the registration page.</p>
+              <p class="bilingual">付款未完成，您可返回報名頁面重新操作。</p>
+              <div class="result-detail" id="failDetail"></div>
+              <a href="index.html" class="btn-home mt-3"><i class="bi bi-house me-2"></i>Back to TSWIM 2026</a>
+            </div>
+
+            <!-- Default (direct visit / no params) -->
+            <div class="result-card state active" id="stateDefault">
+              <div class="result-icon" style="color:#0b5394"><i class="bi bi-info-circle-fill"></i></div>
+              <h2>Payment Status</h2>
+              <p class="bilingual" style="font-size:1.1rem; color:#333; margin-bottom:4px;">付款狀態</p>
+              <p>
+                If you just completed a payment, your confirmation email is on the way.
+                For ATM transfers, please complete the transfer within the deadline shown on the ECPay page.
+              </p>
+              <p class="bilingual">
+                若您剛完成付款，確認信即將寄出。若選擇ATM轉帳，請於ECPay頁面所示期限內完成匯款。
+              </p>
+              <a href="index.html" class="btn-home mt-3"><i class="bi bi-house me-2"></i>Back to TSWIM 2026</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer position-relative dark-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>&copy; <span>Copyright</span> <strong class="px-1 sitename">TSWIM 2026</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // ECPay OrderResultURL sends payment params via GET query string
+    var params = new URLSearchParams(window.location.search);
+    var rtnCode = params.get('RtnCode') || '';
+    var orderId = params.get('CustomField1') || '';
+    var amount = params.get('TradeAmt') || '';
+    var tradeNo = params.get('MerchantTradeNo') || '';
+    var tradeDate = params.get('TradeDate') || '';
+    var bankCode = params.get('BankCode') || '';
+    var vAccount = params.get('vAccount') || '';
+    var expireDate = params.get('ExpireDate') || '';
+
+    function detail(items) {
+      return items.filter(function(i) { return i[1]; }).map(function(i) {
+        return '<div class="row-item"><span>' + i[0] + '</span><span style="font-weight:600">' + i[1] + '</span></div>';
+      }).join('');
+    }
+
+    function show(id, html) {
+      document.getElementById('stateDefault').classList.remove('active');
+      document.getElementById(id).classList.add('active');
+      var el = document.getElementById(id.replace('state', '').toLowerCase() + 'Detail');
+      if (el && html) el.innerHTML = html;
+    }
+
+    if (rtnCode === '1') {
+      show('stateSuccess', detail([
+        ['Order ID', orderId],
+        ['Amount 金額', amount ? 'NT$' + parseInt(amount).toLocaleString() : ''],
+        ['Trade No. 交易編號', tradeNo],
+        ['Date 交易時間', tradeDate]
+      ]));
+    } else if (bankCode || vAccount) {
+      show('statePending', detail([
+        ['Order ID', orderId],
+        ['Amount 金額', amount ? 'NT$' + parseInt(amount).toLocaleString() : ''],
+        ['Bank Code 銀行代碼', bankCode],
+        ['Virtual Account 虛擬帳號', vAccount],
+        ['Deadline 繳費期限', expireDate]
+      ]));
+    } else if (rtnCode && rtnCode !== '1') {
+      show('stateFail', detail([
+        ['Order ID', orderId],
+        ['Error Code', rtnCode]
+      ]));
+    }
+  </script>
+
+
+</body>
+</html>
