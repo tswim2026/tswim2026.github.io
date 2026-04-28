@@ -1,0 +1,24 @@
+{
+  "name": "tswim2026-website",
+  "version": "1.0.0",
+  "description": "TSWIM 2026 Website",
+  "scripts": {
+    "build:css": "sass assets/scss/main.scss assets/css/main.css --style=expanded",
+    "watch:css": "sass --watch assets/scss/main.scss:assets/css/main.css --style=expanded",
+    "serve": "live-server --port=3000 --open=/index.html",
+    "dev": "concurrently \"npm run watch:css\" \"npm run serve\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0",
+    "live-server": "^1.2.2",
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "tswim",
+    "website"
+  ],
+  "author": "TSWIM 2026",
+  "license": "MIT"
+}
+

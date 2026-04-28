@@ -5,3 +5,7 @@ _wip/
 _dev/
 _inbox/
 _data/
+*.log
+*.tmp
+assets/
+node_modules/
