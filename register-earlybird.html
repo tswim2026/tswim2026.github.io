@@ -32,6 +32,7 @@
     .form-label { font-weight: 500; color: #333; font-size: 0.9rem; }
     .form-label .text-danger { font-size: 0.8rem; }
     .form-control, .form-select { border-radius: 10px; border: 1.5px solid #d0d5dd; padding: 10px 14px; font-size: 0.95rem; transition: border-color 0.2s; }
+    .form-control::placeholder { color: #cecece; }
     .form-control:focus, .form-select:focus { border-color: #0b5394; box-shadow: 0 0 0 3px rgba(11,83,148,0.1); }
     .form-check-input:checked { background-color: #0b5394; border-color: #0b5394; }
 
@@ -145,7 +146,7 @@
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Email <span class="bilingual">電子郵件</span> <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" required placeholder="you@example.com">
+                        <input type="email" class="form-control" name="email" required placeholder="e.g. you@example.com">
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Affiliation <span class="bilingual">服務單位</span> <span class="text-danger">*</span></label>
@@ -201,7 +202,8 @@
                             <input class="form-check-input" type="radio" name="participation" id="partBoth" value="both" required>
                             <label class="form-check-label w-100" for="partBoth">
                               <span class="ticket-name">TSWIM + NSTC Workshop <span class="bilingual">研討會＋工作坊</span></span>
-                              <div class="ticket-desc">Day 1: Keynotes, Paper Sessions — Day 2: NSTC Workshop<br><span class="bilingual">第一天：專題演講、論文發表 — 第二天：國科會工作坊</span></div>
+                              <div class="ticket-desc">Day 2: all activities + Day 3: all activities<br><span class="bilingual">第二天：所有活動＋第三天：所有活動</span></div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,000 / Other: NT$2,000</div>
                             </label>
                           </div>
                         </div>
@@ -212,7 +214,8 @@
                             <input class="form-check-input" type="radio" name="participation" id="partNSTC" value="nstc">
                             <label class="form-check-label w-100" for="partNSTC">
                               <span class="ticket-name">NSTC Workshop Only <span class="bilingual">僅參加國科會工作坊</span></span>
-                              <div class="ticket-desc">NSTC Management II Division Research Workshop only (Day 2)<br><span class="bilingual">僅國科會管理二學門研究工作坊（第二天）</span></div>
+                              <div class="ticket-desc">Day 2: NSTC Workshop events only (incubator as audience only)<br><span class="bilingual">第二天：僅國科會工作坊活動</span></div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Free 免費</div>
                             </label>
                           </div>
                         </div>
@@ -255,8 +258,8 @@
                       <div class="col-12">
                         <label class="form-label">Need shuttle to banquet venue? <span class="bilingual">需要搭車到晚宴會場？</span></label>
                         <select class="form-select" name="shuttle">
-                          <option value="yes" selected>Yes 需要</option>
-                          <option value="no">No 不需要</option>
+                          <option value="no" selected>No 不需要</option>
+                          <option value="yes">Yes 需要</option>
                         </select>
                       </div>
                     </div>
@@ -286,7 +289,7 @@
                       </div>
                       <div class="col-12">
                         <label class="form-label">Notes <span class="bilingual">備註</span></label>
-                        <textarea class="form-control" name="notes" rows="2" placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
+                        <textarea class="form-control" name="notes" rows="2" placeholder="Dietary restrictions, accessibility needs, etc. (optional)"></textarea>
                       </div>
                     </div>
                   </div>

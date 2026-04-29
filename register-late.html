@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>On-site Registration — TSWIM 2026</title>
+  <title>Late Registration — TSWIM 2026</title>
 
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -26,12 +26,17 @@
     .register-header { background: linear-gradient(135deg, #5a5a5a, #333); color: #fff; padding: 32px 36px; }
     .register-header h2 { font-family: var(--heading-font); font-weight: 700; margin: 0 0 4px; font-size: 1.6rem; color: #fff; }
     .register-header p { margin: 0; opacity: 0.85; font-size: 0.95rem; }
-    .badge-onsite { display: inline-block; background: #e65100; color: #fff; font-weight: 600; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .badge-late { display: inline-block; background: #e65100; color: #fff; font-weight: 600; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .register-body { padding: 32px 36px; }
     .section-label { font-family: var(--heading-font); font-weight: 600; color: #0b5394; font-size: 1.05rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
     .form-label { font-weight: 500; color: #333; font-size: 0.9rem; }
     .form-label .text-danger { font-size: 0.8rem; }
     .form-control, .form-select { border-radius: 10px; border: 1.5px solid #d0d5dd; padding: 10px 14px; font-size: 0.95rem; transition: border-color 0.2s; }
+    .form-control::placeholder { color: #cecece; }
+
+    .banquet-unavailable { border: 1.5px solid #ddd; border-radius: 12px; padding: 18px 20px; background: #f5f5f5; color: #999; text-align: center; }
+    .banquet-unavailable .bi { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+    .banquet-unavailable strong { color: #888; }
     .form-control:focus, .form-select:focus { border-color: #0b5394; box-shadow: 0 0 0 3px rgba(11,83,148,0.1); }
     .form-check-input:checked { background-color: #0b5394; border-color: #0b5394; }
 
@@ -106,32 +111,25 @@
 
               <!-- Header -->
               <div class="register-header">
-                <span class="badge-onsite"><i class="bi bi-geo-alt me-1"></i>On-site</span>
-                <h2>On-site Registration <span class="bilingual" style="color:rgba(255,255,255,0.7)">現場報名</span></h2>
+                <span class="badge-late"><i class="bi bi-clock me-1"></i>Late Registration</span>
+                <h2>Late Registration <span class="bilingual" style="color:rgba(255,255,255,0.7)">晚鳥報名</span></h2>
                 <p>Taiwan Summer Workshop on Information Management 2026</p>
               </div>
 
               <div class="register-body">
 
                 <!-- Notice banners -->
-                <div class="notice-banner mb-3">
+                <div class="notice-banner mb-4">
                   <i class="bi bi-exclamation-triangle"></i>
                   <div>
-                    <strong>Standard pricing applies for on-site registration.</strong>
-                    <span class="bilingual d-block">現場報名一律收取非早鳥費用。</span>
-                  </div>
-                </div>
-                <div class="notice-banner mb-4">
-                  <i class="bi bi-x-circle"></i>
-                  <div>
-                    <strong>Banquet cannot be added on-site.</strong>
-                    <span class="bilingual d-block">現場報名一律不可追加晚宴。</span>
+                    <strong>Late registration: standard pricing applies.</strong>
+                    <span class="bilingual d-block">晚鳥報名一律收取非早鳥費用。</span>
                   </div>
                 </div>
 
                 <form id="registerForm" method="GET" action="https://script.google.com/macros/s/AKfycbzNdNBXGVR5aj1Bf0tYhkeeIjoqTnM3WBGaDfRcRLGVBz7v4MRAmNkiSghuQC4aNtdN/exec">
                   <input type="hidden" name="action" value="register">
-                  <input type="hidden" name="registrationType" value="onsite">
+                  <input type="hidden" name="registrationType" value="late">
                   <input type="hidden" name="banquet" value="no">
 
                   <!-- 1. Personal Information -->
@@ -145,7 +143,7 @@
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Email <span class="bilingual">電子郵件</span> <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" required placeholder="you@example.com">
+                        <input type="email" class="form-control" name="email" required placeholder="e.g. you@example.com">
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Affiliation <span class="bilingual">服務單位</span> <span class="text-danger">*</span></label>
@@ -201,7 +199,8 @@
                             <input class="form-check-input" type="radio" name="participation" id="partBoth" value="both" required>
                             <label class="form-check-label w-100" for="partBoth">
                               <span class="ticket-name">TSWIM + NSTC Workshop <span class="bilingual">研討會＋工作坊</span></span>
-                              <div class="ticket-desc">Day 1: Keynotes, Paper Sessions — Day 2: NSTC Workshop<br><span class="bilingual">第一天：專題演講、論文發表 — 第二天：國科會工作坊</span></div>
+                              <div class="ticket-desc">Day 2: all activities + Day 3: all activities<br><span class="bilingual">第二天：所有活動＋第三天：所有活動</span></div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,500 / Other: NT$3,500</div>
                             </label>
                           </div>
                         </div>
@@ -212,7 +211,8 @@
                             <input class="form-check-input" type="radio" name="participation" id="partNSTC" value="nstc">
                             <label class="form-check-label w-100" for="partNSTC">
                               <span class="ticket-name">NSTC Workshop Only <span class="bilingual">僅參加國科會工作坊</span></span>
-                              <div class="ticket-desc">NSTC Management II Division Research Workshop only (Day 2)<br><span class="bilingual">僅國科會管理二學門研究工作坊（第二天）</span></div>
+                              <div class="ticket-desc">Day 2: NSTC Workshop events only (incubator as audience only)<br><span class="bilingual">第二天：僅國科會工作坊活動</span></div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Free 免費</div>
                             </label>
                           </div>
                         </div>
@@ -220,7 +220,17 @@
                     </div>
                   </div>
 
-                  <!-- 4. Additional Information -->
+                  <!-- 4. Banquet (unavailable for late registration) -->
+                  <div class="mb-4">
+                    <h5 class="section-label"><i class="bi bi-cup-hot me-2"></i>Banquet <span class="bilingual">晚宴</span></h5>
+                    <div class="banquet-unavailable">
+                      <i class="bi bi-x-circle"></i>
+                      <strong>No longer available</strong>
+                      <div class="bilingual" style="margin-top:4px">晚鳥報名無法追加晚宴</div>
+                    </div>
+                  </div>
+
+                  <!-- 5. Additional Information -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-info-circle me-2"></i>Additional Information <span class="bilingual">其他資訊</span></h5>
 
@@ -243,7 +253,7 @@
                       </div>
                       <div class="col-12">
                         <label class="form-label">Notes <span class="bilingual">備註</span></label>
-                        <textarea class="form-control" name="notes" rows="2" placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
+                        <textarea class="form-control" name="notes" rows="2" placeholder="Dietary restrictions, accessibility needs, etc. (optional)"></textarea>
                       </div>
                     </div>
                   </div>
@@ -274,7 +284,7 @@
                       </div>
                       <div class="summary-row">
                         <span>Banquet <span class="bilingual">晚宴</span></span>
-                        <span style="color:#999">Not available on-site <span class="bilingual">現場不可追加</span></span>
+                        <span style="color:#999">No longer available <span class="bilingual">已截止</span></span>
                       </div>
                       <div class="summary-total" id="summaryTotal">
                         <span>Total 合計</span>
@@ -355,8 +365,8 @@
 
       if (role && participation) {
         var fee = PRICES[participation.value][role.value] || 0;
-        var roleLabel = role.value === 'student' ? 'Student (On-site)' : 'Faculty (On-site)';
-        var roleZh = role.value === 'student' ? '學生（現場）' : '教師（現場）';
+        var roleLabel = role.value === 'student' ? 'Student (Late)' : 'Faculty (Late)';
+        var roleZh = role.value === 'student' ? '學生（晚鳥）' : '教師（晚鳥）';
         var partLabels = {
           both: ['TSWIM + NSTC', '研討會＋工作坊'],
           nstc: ['NSTC Workshop Only', '僅工作坊']
