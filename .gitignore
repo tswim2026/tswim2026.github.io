@@ -9,3 +9,10 @@ _data/
 *.tmp
 assets/
 node_modules/
+
+# AI tooling
+CLAUDE.local.md
+
+# Cross-machine sync manifests (e.g. Sideways)
+.swcopy
+.swsymlink
