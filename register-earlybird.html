@@ -57,6 +57,10 @@
     .btn-register:hover { background: linear-gradient(135deg, #f4a65f, #ee9a4c); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(244,166,95,0.3); }
     .btn-register:disabled { opacity: 0.5; transform: none; box-shadow: none; }
 
+    .english-only-error { display: none; font-size: 0.8rem; color: #e74c3c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 4px 10px; margin-top: 4px; }
+    .english-only-error.visible { display: block; }
+    .field-error { display: none; font-size: 0.8rem; color: #e74c3c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 4px 10px; margin-top: 4px; }
+    .field-error.visible { display: block; }
     .bilingual { font-size: 0.82rem; color: #888; }
     .was-validated .form-control:invalid, .was-validated .form-select:invalid { border-color: #e74c3c; }
     .was-validated .form-control:valid, .was-validated .form-select:valid { border-color: #27ae60; }
@@ -141,20 +145,24 @@
 
                     <div class="row g-3">
                       <div class="col-md-6">
-                        <label class="form-label">Full Name <span class="bilingual">姓名</span> <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="name" required placeholder="e.g. 王大明">
+                        <label class="form-label">English Name <span class="bilingual">英文姓名</span> <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control english-only" name="name_en" required placeholder="e.g. Da-Ming Wang">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Chinese Name <span class="bilingual">中文姓名</span></label>
+                        <input type="text" class="form-control" name="name_zh" placeholder="e.g. 王大明 (optional)">
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Email <span class="bilingual">電子郵件</span> <span class="text-danger">*</span></label>
                         <input type="email" class="form-control" name="email" required placeholder="e.g. you@example.com">
                       </div>
                       <div class="col-md-6">
-                        <label class="form-label">Affiliation <span class="bilingual">服務單位</span> <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="affiliation" required placeholder="e.g. National Tsing Hua University">
+                        <label class="form-label">Affiliation <span class="bilingual">服務單位（英文）</span> <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control english-only" name="affiliation" required placeholder="e.g. National Tsing Hua University">
                       </div>
                       <div class="col-md-6">
-                        <label class="form-label">Department <span class="bilingual">系所</span> <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="department" required placeholder="e.g. Service Science">
+                        <label class="form-label">Department <span class="bilingual">系所（英文）</span> <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control english-only" name="department" required placeholder="e.g. Service Science">
                       </div>
                       <div class="col-md-6">
                         <label class="form-label">Phone <span class="bilingual">聯絡電話</span> <span class="text-danger">*</span></label>
@@ -203,7 +211,7 @@
                             <label class="form-check-label w-100" for="partBoth">
                               <span class="ticket-name">TSWIM + NSTC Workshop <span class="bilingual">研討會＋工作坊</span></span>
                               <div class="ticket-desc">Day 2: all activities + Day 3: all activities<br><span class="bilingual">第二天：所有活動＋第三天：所有活動</span></div>
-                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,000 / Other: NT$2,000</div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,000 / Faculty: NT$2,000</div>
                             </label>
                           </div>
                         </div>
@@ -214,7 +222,7 @@
                             <input class="form-check-input" type="radio" name="participation" id="partNSTC" value="nstc">
                             <label class="form-check-label w-100" for="partNSTC">
                               <span class="ticket-name">NSTC Workshop Only <span class="bilingual">僅參加國科會工作坊</span></span>
-                              <div class="ticket-desc">Day 2: NSTC Workshop events only (incubator as audience only)<br><span class="bilingual">第二天：僅國科會工作坊活動</span></div>
+                              <div class="ticket-desc">Day 3, NSTC workshop events only<br><span class="bilingual">第三天，僅國科會工作坊活動</span></div>
                               <div class="mt-1" style="color:#333; font-size:0.95rem;">Free 免費</div>
                             </label>
                           </div>
@@ -281,7 +289,7 @@
                         </select>
                       </div>
                       <div class="col-md-6">
-                        <label class="form-label">NTHU Parking Voucher? <span class="bilingual">需要清大停車抵用券？</span></label>
+                        <label class="form-label">Need NTHU parking voucher? <span class="bilingual">需要清大停車抵用券？</span></label>
                         <select class="form-select" name="parking">
                           <option value="no">No 不需要</option>
                           <option value="yes">Yes 需要</option>
@@ -365,16 +373,143 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Early bird pricing (pay by 6/12 inclusive)
-    // TSWIM: student NT$1,000, faculty NT$2,000. NSTC Workshop only: free. Banquet: NT$1,500.
+    const form = document.getElementById('registerForm');
+
+    // English-only field validation (reject CJK characters)
+    const cjkRegex = /[一-鿿㐀-䶿豈-﫿]/;
+    document.querySelectorAll('.english-only').forEach(input => {
+      const msg = document.createElement('div');
+      msg.className = 'english-only-error';
+      msg.textContent = 'Please enter in English only 請輸入英文';
+      input.parentNode.appendChild(msg);
+      input.addEventListener('input', function() {
+        if (cjkRegex.test(this.value)) {
+          this.setCustomValidity('Please enter in English only');
+          msg.classList.add('visible');
+        } else {
+          this.setCustomValidity('');
+          msg.classList.remove('visible');
+        }
+      });
+      input.addEventListener('blur', function() {
+        if (this.required && !this.value.trim()) {
+          this.setCustomValidity('This field is required');
+          msg.textContent = 'This field is required 此欄位必填';
+          msg.classList.add('visible');
+        } else if (cjkRegex.test(this.value)) {
+          this.setCustomValidity('Please enter in English only');
+          msg.textContent = 'Please enter in English only 請輸入英文';
+          msg.classList.add('visible');
+        } else {
+          this.setCustomValidity('');
+          msg.textContent = 'Please enter in English only 請輸入英文';
+          msg.classList.remove('visible');
+        }
+      });
+    });
+
+    // Generic field validation popups
+    function createError(parent, message) {
+      const el = document.createElement('div');
+      el.className = 'field-error';
+      el.textContent = message;
+      parent.appendChild(el);
+      return el;
+    }
+
+    // Email validation (on blur)
+    const emailInput = form.querySelector('input[name="email"]');
+    const emailError = createError(emailInput.parentNode, 'Please enter a valid email 請輸入有效的電子郵件');
+    emailInput.addEventListener('blur', function() {
+      if (!this.value.trim()) {
+        emailError.textContent = 'This field is required 此欄位必填';
+        emailError.classList.add('visible');
+      } else if (!this.validity.valid) {
+        emailError.textContent = 'Please enter a valid email 請輸入有效的電子郵件';
+        emailError.classList.add('visible');
+      } else {
+        emailError.classList.remove('visible');
+      }
+    });
+    emailInput.addEventListener('input', function() {
+      if (this.validity.valid) emailError.classList.remove('visible');
+    });
+
+    // Phone validation (on blur)
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const phoneError = createError(phoneInput.parentNode, 'Please enter your phone number 請輸入聯絡電話');
+    phoneInput.addEventListener('blur', function() {
+      if (!this.value.trim()) {
+        phoneError.classList.add('visible');
+      } else {
+        phoneError.classList.remove('visible');
+      }
+    });
+    phoneInput.addEventListener('input', function() {
+      if (this.value.trim()) phoneError.classList.remove('visible');
+    });
+
+    // Tax ID validation (on blur)
+    const taxInput = form.querySelector('input[name="taxId"]');
+    if (taxInput) {
+      const taxError = createError(taxInput.parentNode, 'Tax ID must be 8 digits 統一編號須為8位數字');
+      taxInput.addEventListener('blur', function() {
+        if (this.value && !this.validity.valid) {
+          taxError.classList.add('visible');
+        } else {
+          taxError.classList.remove('visible');
+        }
+      });
+      taxInput.addEventListener('input', function() {
+        if (!this.value || this.validity.valid) taxError.classList.remove('visible');
+      });
+    }
+
+    // Radio group validation (Role, Participation, Banquet)
+    const radioGroups = [
+      { name: 'role', message: 'Please select your role 請選擇身份' },
+      { name: 'participation', message: 'Please select participation type 請選擇參加場次' },
+      { name: 'banquet', message: 'Please select banquet option 請選擇是否參加晚宴' }
+    ];
+    const radioErrors = {};
+    radioGroups.forEach(function(group) {
+      const radios = form.querySelectorAll('input[name="' + group.name + '"]');
+      if (radios.length === 0) return;
+      const container = radios[0].closest('.row.g-3');
+      if (!container) return;
+      radioErrors[group.name] = createError(container, group.message);
+      radios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          radioErrors[group.name].classList.remove('visible');
+        });
+      });
+    });
+
+    // Show all errors on submit
+    form.addEventListener('submit', function(e) {
+      // Show errors for empty required text fields
+      form.querySelectorAll('input[required]:not([type="radio"])').forEach(function(input) {
+        if (!input.validity.valid) {
+          const errorEl = input.parentNode.querySelector('.field-error, .english-only-error');
+          if (errorEl) errorEl.classList.add('visible');
+        }
+      });
+      // Show errors for unselected radio groups
+      Object.keys(radioErrors).forEach(function(name) {
+        const checked = form.querySelector('input[name="' + name + '"]:checked');
+        if (!checked) {
+          radioErrors[name].classList.add('visible');
+        }
+      });
+    }, true);
+
+    // Early bird pricing
     const PRICES = {
       tswim:   { student: 1000, faculty: 2000 },
       nstc:    { student: 0,    faculty: 0    },
       both:    { student: 1000, faculty: 2000 },
       banquet: 1500
     };
-
-    const form = document.getElementById('registerForm');
 
     // Make ticket-option cards clickable
     document.querySelectorAll('.ticket-option, .addon-option').forEach(card => {
