@@ -44,11 +44,6 @@
     .ticket-option .ticket-desc { font-size: 0.82rem; color: #666; margin-top: 2px; }
     .ticket-option .form-check-input { margin-top: 2px; }
 
-    .addon-option { border: 1.5px solid #e8f0fe; border-radius: 12px; padding: 14px 18px; transition: all 0.2s; }
-    .addon-option:hover { border-color: #b3d4fc; }
-    .addon-option.selected { border-color: #0b5394; background: #f0f6ff; }
-    .addon-option label { cursor: pointer; }
-
     .summary-box { background: #fffbf6; border: 2px solid #f6b26b; border-radius: 14px; padding: 20px 24px; }
     .summary-box .summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.95rem; }
     .summary-box .summary-total { display: flex; justify-content: space-between; padding: 10px 0 0; margin-top: 8px; border-top: 2px solid #f6b26b; font-weight: 700; font-size: 1.15rem; color: #0b5394; }
@@ -65,7 +60,6 @@
     .was-validated .form-control:invalid, .was-validated .form-select:invalid { border-color: #e74c3c; }
     .was-validated .form-control:valid, .was-validated .form-select:valid { border-color: #27ae60; }
     .was-validated .ticket-option:has(input:invalid) { border-color: #e74c3c; }
-    .was-validated .addon-option:has(input:invalid) { border-color: #e74c3c; }
     .validation-msg { color: #e74c3c; font-size: 0.85rem; margin-top: 8px; display: none; }
     .was-validated .validation-msg { display: block; }
     .deadline-banner { background: #fff3e0; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e65100; }
@@ -138,6 +132,7 @@
                 <form id="registerForm" method="GET" action="https://script.google.com/macros/s/AKfycbzNdNBXGVR5aj1Bf0tYhkeeIjoqTnM3WBGaDfRcRLGVBz7v4MRAmNkiSghuQC4aNtdN/exec">
                   <input type="hidden" name="action" value="register">
                   <input type="hidden" name="registrationType" value="earlybird">
+                  <input type="hidden" name="banquet" value="yes">
 
                   <!-- 1. Personal Information -->
                   <div class="mb-4">
@@ -231,39 +226,19 @@
                     </div>
                   </div>
 
-                  <!-- 4. Banquet -->
+                  <!-- 4. Additional Information -->
                   <div class="mb-4">
-                    <h5 class="section-label"><i class="bi bi-cup-hot me-2"></i>Banquet <span class="bilingual">晚宴</span> <span class="text-danger">*</span></h5>
-                    <p style="font-size:0.85rem; color:#666; margin-bottom:12px;">
-                      Venue: Ambassador Hotel Hsinchu <span class="bilingual">新竹國賓大飯店</span> — Additional fee <span class="bilingual">額外付費自由參加</span>
-                    </p>
-                    <div class="row g-3">
-                      <div class="col-12 col-sm-6">
-                        <div class="addon-option" data-banquet="yes">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="banquet" id="banquetYes" value="yes" required>
-                            <label class="form-check-label w-100" for="banquetYes">
-                              <span class="fw-600" style="font-weight:600">Yes, I will attend <span class="bilingual">參加</span></span>
-                              <div class="mt-1" style="color:#333; font-size:0.95rem;" id="banquetPrice">NT$1,500</div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                        <div class="addon-option" data-banquet="no">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="banquet" id="banquetNo" value="no">
-                            <label class="form-check-label w-100" for="banquetNo">
-                              <span class="fw-600" style="font-weight:600">No, skip banquet <span class="bilingual">不參加</span></span>
-                              <div class="mt-1" style="color:#333; font-size:0.95rem;">NT$0</div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <h5 class="section-label"><i class="bi bi-info-circle me-2"></i>Additional Information <span class="bilingual">其他資訊</span></h5>
 
-                    <!-- Banquet shuttle (shown only if banquet=yes) -->
-                    <div class="row g-3 mt-1" id="shuttleRow" style="display:none">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label class="form-label">Meal Preference <span class="bilingual">餐點需求</span> <span class="text-danger">*</span></label>
+                        <select class="form-select" name="meal" required>
+                          <option value="regular" selected>Regular 一般</option>
+                          <option value="vegan">Vegan 全素</option>
+                          <option value="other">Other 其他 (please specify in notes)</option>
+                        </select>
+                      </div>
                       <div class="col-12">
                         <label class="form-label">Need shuttle to banquet venue? <span class="bilingual">需要搭車到晚宴會場？</span></label>
                         <select class="form-select" name="shuttle">
@@ -271,25 +246,8 @@
                           <option value="yes">Yes 需要</option>
                         </select>
                       </div>
-                    </div>
-                  </div>
-
-                  <!-- 5. Additional Information -->
-                  <div class="mb-4">
-                    <h5 class="section-label"><i class="bi bi-info-circle me-2"></i>Additional Information <span class="bilingual">其他資訊</span></h5>
-
-                    <div class="row g-3">
-                      <div class="col-md-6">
-                        <label class="form-label">Meal Preference <span class="bilingual">餐點需求</span> <span class="text-danger">*</span></label>
-                        <select class="form-select" name="meal" required>
-                          <option value="regular" selected>Regular 一般</option>
-
-                          <option value="vegan">Vegan 全素</option>
-                          <option value="other">Other 其他 (please specify in notes)</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Need NTHU parking voucher? <span class="bilingual d-md-block d-xxl-inline">需要清大停車抵用券？</span></label>
+                      <div class="col-12">
+                        <label class="form-label">Need NTHU parking voucher? <span class="bilingual">需要清大停車抵用券？</span></label>
                         <select class="form-select" name="parking">
                           <option value="no">No 不需要</option>
                           <option value="yes">Yes 需要</option>
@@ -302,7 +260,7 @@
                     </div>
                   </div>
 
-                  <!-- 6. Receipt Information -->
+                  <!-- 5. Receipt Information -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-receipt me-2"></i>Receipt Information <span class="bilingual">收據資訊</span></h5>
 
@@ -318,16 +276,12 @@
                     </div>
                   </div>
 
-                  <!-- 7. Summary -->
+                  <!-- 6. Summary -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-calculator me-2"></i>Summary <span class="bilingual">費用摘要</span></h5>
                     <div class="summary-box">
                       <div class="summary-row" id="summaryRole">
                         <span>Registration</span>
-                        <span>—</span>
-                      </div>
-                      <div class="summary-row" id="summaryBanquet">
-                        <span>Banquet</span>
                         <span>—</span>
                       </div>
                       <div class="summary-total" id="summaryTotal">
@@ -465,11 +419,10 @@
       });
     }
 
-    // Radio group validation (Role, Participation, Banquet)
+    // Radio group validation (Role, Participation)
     const radioGroups = [
       { name: 'role', message: 'Please select your role 請選擇身份' },
-      { name: 'participation', message: 'Please select participation type 請選擇參加場次' },
-      { name: 'banquet', message: 'Please select banquet option 請選擇是否參加晚宴' }
+      { name: 'participation', message: 'Please select participation type 請選擇參加場次' }
     ];
     const radioErrors = {};
     radioGroups.forEach(function(group) {
@@ -507,8 +460,7 @@
     const PRICES = {
       tswim:   { student: 1500, regular: 3500 },
       nstc:    { student: 0,    regular: 0    },
-      both:    { student: 1500, regular: 3500 },
-      banquet: 1500
+      both:    { student: 1500, regular: 3500 }
     };
 
     // Make ticket-option cards clickable
@@ -535,20 +487,11 @@
     function updateSummary() {
       const role = document.querySelector('input[name="role"]:checked')?.value;
       const participation = document.querySelector('input[name="participation"]:checked')?.value;
-      const banquet = document.querySelector('input[name="banquet"]:checked')?.value;
 
       const summaryRole = document.getElementById('summaryRole');
-      const summaryBanquet = document.getElementById('summaryBanquet');
       const summaryTotal = document.getElementById('summaryTotal');
-      const banquetPriceEl = document.getElementById('banquetPrice');
-      const shuttleRow = document.getElementById('shuttleRow');
-
-      if (banquetPriceEl) banquetPriceEl.textContent = 'NT$1,500';
-      if (shuttleRow) shuttleRow.style.display = (banquet === 'yes') ? '' : 'none';
 
       let regFee = 0;
-      let regLabel = '—';
-      let regZh = '';
 
       if (role && participation) {
         regFee = PRICES[participation][role] || 0;
@@ -559,28 +502,13 @@
         };
         const roleLabel = role === 'student' ? 'Student (Early Bird)' : 'Regular (Early Bird)';
         const roleZh = role === 'student' ? '學生（早鳥）' : '一般（早鳥）';
-        regLabel = `${roleLabel} · ${partLabels[participation][0]}`;
-        regZh = `${roleZh}·${partLabels[participation][1]}`;
+        const regLabel = `${roleLabel} · ${partLabels[participation][0]}`;
+        const regZh = `${roleZh}·${partLabels[participation][1]}`;
         const priceText = regFee > 0 ? `NT$${regFee.toLocaleString()}` : 'Free 免費';
         summaryRole.innerHTML = `<span>${regLabel} <span class="bilingual">${regZh}</span></span><span style="font-weight:600">${priceText}</span>`;
+        summaryTotal.innerHTML = `<span>Total 合計</span><span>${priceText}</span>`;
       } else {
         summaryRole.innerHTML = `<span>Registration</span><span>—</span>`;
-      }
-
-      let banquetFee = 0;
-      if (banquet === 'yes') {
-        banquetFee = PRICES.banquet;
-        summaryBanquet.innerHTML = `<span>Banquet <span class="bilingual">晚宴</span></span><span style="font-weight:600">NT$${banquetFee.toLocaleString()}</span>`;
-      } else if (banquet === 'no') {
-        summaryBanquet.innerHTML = `<span>Banquet <span class="bilingual">晚宴</span></span><span style="color:#888">Not attending</span>`;
-      } else {
-        summaryBanquet.innerHTML = `<span>Banquet</span><span>—</span>`;
-      }
-
-      const total = regFee + banquetFee;
-      if (role && participation && banquet) {
-        summaryTotal.innerHTML = `<span>Total 合計</span><span>${total > 0 ? 'NT$' + total.toLocaleString() : 'Free 免費'}</span>`;
-      } else {
         summaryTotal.innerHTML = `<span>Total 合計</span><span>—</span>`;
       }
     }

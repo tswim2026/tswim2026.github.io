@@ -37,9 +37,6 @@
     .form-control:focus, .form-select:focus { border-color: #0b5394; box-shadow: 0 0 0 3px rgba(11,83,148,0.1); }
     .form-check-input:checked { background-color: #0b5394; border-color: #0b5394; }
 
-    .banquet-unavailable { border: 1.5px solid #ddd; border-radius: 12px; padding: 18px 20px; background: #f5f5f5; color: #999; text-align: center; }
-    .banquet-unavailable .bi { font-size: 1.5rem; display: block; margin-bottom: 6px; }
-    .banquet-unavailable strong { color: #888; }
     .ticket-option { border: 2px solid #e8f0fe; border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.2s; position: relative; }
     .ticket-option:hover { border-color: #b3d4fc; background: #f8fbff; }
     .ticket-option.selected { border-color: #0b5394; background: #f0f6ff; }
@@ -228,22 +225,12 @@
                     </div>
                   </div>
 
-                  <!-- 4. Banquet (unavailable for late registration) -->
-                  <div class="mb-4">
-                    <h5 class="section-label"><i class="bi bi-cup-hot me-2"></i>Banquet <span class="bilingual">晚宴</span></h5>
-                    <div class="banquet-unavailable">
-                      <i class="bi bi-x-circle"></i>
-                      <strong>No longer available</strong>
-                      <div class="bilingual" style="margin-top:4px">現場報名無法追加晚宴</div>
-                    </div>
-                  </div>
-
-                  <!-- 5. Additional Information -->
+                  <!-- 4. Additional Information -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-info-circle me-2"></i>Additional Information <span class="bilingual">其他資訊</span></h5>
 
                     <div class="row g-3">
-                      <div class="col-md-6">
+                      <div class="col-12">
                         <label class="form-label">Meal Preference <span class="bilingual">餐點需求</span> <span class="text-danger">*</span></label>
                         <select class="form-select" name="meal" required>
                           <option value="regular" selected>Regular 一般</option>
@@ -251,8 +238,8 @@
                           <option value="other">Other 其他 (please specify in notes)</option>
                         </select>
                       </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Need NTHU parking voucher? <span class="bilingual d-md-block d-xxl-inline">需要清大停車抵用券？</span></label>
+                      <div class="col-12">
+                        <label class="form-label">Need NTHU parking voucher? <span class="bilingual">需要清大停車抵用券？</span></label>
                         <select class="form-select" name="parking">
                           <option value="no">No 不需要</option>
                           <option value="yes">Yes 需要</option>
@@ -265,7 +252,7 @@
                     </div>
                   </div>
 
-                  <!-- 5. Receipt Information -->
+                  <!-- 4b. Receipt Information -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-receipt me-2"></i>Receipt Information <span class="bilingual">收據資訊</span></h5>
 
@@ -288,10 +275,6 @@
                       <div class="summary-row" id="summaryRole">
                         <span>Registration</span>
                         <span>—</span>
-                      </div>
-                      <div class="summary-row">
-                        <span>Banquet <span class="bilingual">晚宴</span></span>
-                        <span style="color:#999">No longer available <span class="bilingual">已截止</span></span>
                       </div>
                       <div class="summary-total" id="summaryTotal">
                         <span>Total 合計</span>
