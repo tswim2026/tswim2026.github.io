@@ -23,23 +23,19 @@
   <style>
     .register-page { padding-top: 120px; padding-bottom: 60px; min-height: 100vh; }
     .register-card { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); overflow: hidden; }
-    .register-header { background: linear-gradient(135deg, #5a5a5a, #333); color: #fff; padding: 32px 36px; }
-    .register-header h2 { font-family: var(--heading-font); font-weight: 700; margin: 0 0 4px; font-size: 1.6rem; color: #fff; }
+    .register-header { background: linear-gradient(135deg, #0b5394, #073763); color: #fff; padding: 32px 36px; }
+    .register-header h2 { font-family: var(--heading-font); font-weight: 700; margin: 0 0 4px; font-size: 1.6rem; }
     .register-header p { margin: 0; opacity: 0.85; font-size: 0.95rem; }
-    .badge-late { display: inline-block; background: #e65100; color: #fff; font-weight: 600; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .badge-normal { display: inline-block; background: #0b5394; color: #fff; font-weight: 600; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; border: 1.5px solid rgba(255,255,255,0.3); }
     .register-body { padding: 32px 36px; }
     .section-label { font-family: var(--heading-font); font-weight: 600; color: #0b5394; font-size: 1.05rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
     .form-label { font-weight: 500; color: #333; font-size: 0.9rem; }
     .form-label .text-danger { font-size: 0.8rem; }
     .form-control, .form-select { border-radius: 10px; border: 1.5px solid #d0d5dd; padding: 10px 14px; font-size: 0.95rem; transition: border-color 0.2s; }
     .form-control::placeholder { color: #cecece; }
-
     .form-control:focus, .form-select:focus { border-color: #0b5394; box-shadow: 0 0 0 3px rgba(11,83,148,0.1); }
     .form-check-input:checked { background-color: #0b5394; border-color: #0b5394; }
 
-    .banquet-unavailable { border: 1.5px solid #ddd; border-radius: 12px; padding: 18px 20px; background: #f5f5f5; color: #999; text-align: center; }
-    .banquet-unavailable .bi { font-size: 1.5rem; display: block; margin-bottom: 6px; }
-    .banquet-unavailable strong { color: #888; }
     .ticket-option { border: 2px solid #e8f0fe; border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.2s; position: relative; }
     .ticket-option:hover { border-color: #b3d4fc; background: #f8fbff; }
     .ticket-option.selected { border-color: #0b5394; background: #f0f6ff; }
@@ -48,12 +44,17 @@
     .ticket-option .ticket-desc { font-size: 0.82rem; color: #666; margin-top: 2px; }
     .ticket-option .form-check-input { margin-top: 2px; }
 
-    .summary-box { background: #fff3e0; border: 2px solid #e65100; border-radius: 14px; padding: 20px 24px; }
-    .summary-box .summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.95rem; }
-    .summary-box .summary-total { display: flex; justify-content: space-between; padding: 10px 0 0; margin-top: 8px; border-top: 2px solid #e65100; font-weight: 700; font-size: 1.15rem; color: #e65100; }
+    .addon-option { border: 1.5px solid #e8f0fe; border-radius: 12px; padding: 14px 18px; transition: all 0.2s; }
+    .addon-option:hover { border-color: #b3d4fc; }
+    .addon-option.selected { border-color: #0b5394; background: #f0f6ff; }
+    .addon-option label { cursor: pointer; }
 
-    .btn-register { background: linear-gradient(135deg, #e65100, #bf360c); color: #fff; border: none; border-radius: 12px; padding: 14px 40px; font-weight: 600; font-size: 1.05rem; transition: all 0.2s; }
-    .btn-register:hover { background: linear-gradient(135deg, #f57c00, #e65100); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(230,81,0,0.3); }
+    .summary-box { background: #f8fbff; border: 2px solid #0b5394; border-radius: 14px; padding: 20px 24px; }
+    .summary-box .summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.95rem; }
+    .summary-box .summary-total { display: flex; justify-content: space-between; padding: 10px 0 0; margin-top: 8px; border-top: 2px solid #0b5394; font-weight: 700; font-size: 1.15rem; color: #0b5394; }
+
+    .btn-register { background: linear-gradient(135deg, #0b5394, #073763); color: #fff; border: none; border-radius: 12px; padding: 14px 40px; font-weight: 600; font-size: 1.05rem; transition: all 0.2s; }
+    .btn-register:hover { background: linear-gradient(135deg, #0e6ab8, #0b5394); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(11,83,148,0.3); }
     .btn-register:disabled { opacity: 0.5; transform: none; box-shadow: none; }
 
     .english-only-error { display: none; font-size: 0.8rem; color: #e74c3c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 4px 10px; margin-top: 4px; }
@@ -64,8 +65,12 @@
     .was-validated .form-control:invalid, .was-validated .form-select:invalid { border-color: #e74c3c; }
     .was-validated .form-control:valid, .was-validated .form-select:valid { border-color: #27ae60; }
     .was-validated .ticket-option:has(input:invalid) { border-color: #e74c3c; }
-    .notice-banner { background: #fff3e0; border: 1.5px solid #e65100; border-radius: 10px; padding: 12px 18px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: #bf360c; }
-    .notice-banner i { font-size: 1.2rem; margin-top: 2px; }
+    .was-validated .addon-option:has(input:invalid) { border-color: #e74c3c; }
+    .info-banner { background: #e8f0fe; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #0b5394; }
+    .info-banner i { font-size: 1.2rem; }
+
+    .earlybird-nudge { background: #fffbf6; border: 1.5px solid #f6b26b; border-radius: 10px; padding: 12px 18px; font-size: 0.88rem; color: #bf6c12; }
+    .earlybird-nudge a { color: #d4822e; font-weight: 600; }
 
     .header { --background-color: #0e1d34; padding: 10px 0; box-shadow: 0px 0 18px rgba(0,0,0,0.1); }
     .header .logo img.navbar-logo { max-height: 40px; }
@@ -88,7 +93,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#important-dates">Important Dates</a></li>
-          <li><a href="index.html#call-for-papers">Call for Papers</a></li>
+          <li><a href="index.html#registration">Registration</a></li>
           <li class="dropdown"><a href="#"><span>General Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="index.html#keynote-speakers">Keynote Speakers</a></li>
@@ -115,26 +120,25 @@
 
               <!-- Header -->
               <div class="register-header">
-                <span class="badge-late"><i class="bi bi-clock me-1"></i>Late Registration</span>
-                <h2>Late Registration <span class="bilingual" style="color:rgba(255,255,255,0.7)">晚鳥報名</span></h2>
+                <span class="badge-normal">Late Registration</span>
+                <h2 style="color:#fff">Late Registration <span class="bilingual" style="color:rgba(255,255,255,0.7)">晚鳥報名</span></h2>
                 <p>Taiwan Summer Workshop on Information Management 2026</p>
               </div>
 
               <div class="register-body">
 
-                <!-- Notice banners -->
-                <div class="notice-banner mb-4">
-                  <i class="bi bi-exclamation-triangle"></i>
+                <!-- Info banner -->
+                <div class="info-banner mb-4">
+                  <i class="bi bi-info-circle"></i>
                   <div>
-                    <strong>Late registration: standard pricing applies.</strong>
-                    <span class="bilingual d-block">晚鳥報名一律收取非早鳥費用。</span>
+                    <strong>Late registration: June 8 – June 21, 2026</strong>
+                    <span class="bilingual d-block">晚鳥報名期間：2026年6月8日至6月21日</span>
                   </div>
                 </div>
 
                 <form id="registerForm" method="GET" action="https://script.google.com/macros/s/AKfycbzNdNBXGVR5aj1Bf0tYhkeeIjoqTnM3WBGaDfRcRLGVBz7v4MRAmNkiSghuQC4aNtdN/exec">
                   <input type="hidden" name="action" value="register">
                   <input type="hidden" name="registrationType" value="late">
-                  <input type="hidden" name="banquet" value="no">
 
                   <!-- 1. Personal Information -->
                   <div class="mb-4">
@@ -228,13 +232,46 @@
                     </div>
                   </div>
 
-                  <!-- 4. Banquet (unavailable for late registration) -->
+                  <!-- 4. Banquet -->
                   <div class="mb-4">
-                    <h5 class="section-label"><i class="bi bi-cup-hot me-2"></i>Banquet <span class="bilingual">晚宴</span></h5>
-                    <div class="banquet-unavailable">
-                      <i class="bi bi-x-circle"></i>
-                      <strong>No longer available</strong>
-                      <div class="bilingual" style="margin-top:4px">晚鳥報名無法追加晚宴</div>
+                    <h5 class="section-label"><i class="bi bi-cup-hot me-2"></i>Banquet <span class="bilingual">晚宴</span> <span class="text-danger">*</span></h5>
+                    <p style="font-size:0.85rem; color:#666; margin-bottom:12px;">
+                      Venue: Ambassador Hotel Hsinchu <span class="bilingual">新竹國賓大飯店</span> — Additional fee <span class="bilingual">額外付費自由參加</span>
+                    </p>
+                    <div class="row g-3">
+                      <div class="col-12 col-sm-6">
+                        <div class="addon-option" data-banquet="yes">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="banquet" id="banquetYes" value="yes" required>
+                            <label class="form-check-label w-100" for="banquetYes">
+                              <span class="fw-600" style="font-weight:600">Yes, I will attend <span class="bilingual">參加</span></span>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;" id="banquetPrice">NT$1,500</div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="addon-option" data-banquet="no">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="banquet" id="banquetNo" value="no">
+                            <label class="form-check-label w-100" for="banquetNo">
+                              <span class="fw-600" style="font-weight:600">No, skip banquet <span class="bilingual">不參加</span></span>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">NT$0</div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Banquet shuttle (shown only if banquet=yes) -->
+                    <div class="row g-3 mt-1" id="shuttleRow" style="display:none">
+                      <div class="col-12">
+                        <label class="form-label">Need shuttle to banquet venue? <span class="bilingual">需要搭車到晚宴會場？</span></label>
+                        <select class="form-select" name="shuttle">
+                          <option value="no" selected>No 不需要</option>
+                          <option value="yes">Yes 需要</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
 
@@ -247,6 +284,7 @@
                         <label class="form-label">Meal Preference <span class="bilingual">餐點需求</span> <span class="text-danger">*</span></label>
                         <select class="form-select" name="meal" required>
                           <option value="regular" selected>Regular 一般</option>
+
                           <option value="vegan">Vegan 全素</option>
                           <option value="other">Other 其他 (please specify in notes)</option>
                         </select>
@@ -265,7 +303,7 @@
                     </div>
                   </div>
 
-                  <!-- 5. Receipt Information -->
+                  <!-- 6. Receipt Information -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-receipt me-2"></i>Receipt Information <span class="bilingual">收據資訊</span></h5>
 
@@ -281,7 +319,7 @@
                     </div>
                   </div>
 
-                  <!-- 6. Summary -->
+                  <!-- 7. Summary -->
                   <div class="mb-4">
                     <h5 class="section-label"><i class="bi bi-calculator me-2"></i>Summary <span class="bilingual">費用摘要</span></h5>
                     <div class="summary-box">
@@ -289,19 +327,15 @@
                         <span>Registration</span>
                         <span>—</span>
                       </div>
-                      <div class="summary-row">
-                        <span>Banquet <span class="bilingual">晚宴</span></span>
-                        <span style="color:#999">No longer available <span class="bilingual">已截止</span></span>
+                      <div class="summary-row" id="summaryBanquet">
+                        <span>Banquet</span>
+                        <span>—</span>
                       </div>
                       <div class="summary-total" id="summaryTotal">
                         <span>Total 合計</span>
                         <span>—</span>
                       </div>
                     </div>
-                    <p style="font-size:0.82rem; color:#888; margin-top:8px;">
-                      You'll be redirected to the payment page.
-                      <span class="bilingual d-block">提交後將自動導向繳費頁面。</span>
-                    </p>
                   </div>
 
                   <!-- Submit -->
@@ -309,6 +343,10 @@
                     <button type="submit" class="btn btn-register" id="submitBtn">
                       <i class="bi bi-send me-2"></i>Submit Registration <span class="bilingual">送出報名</span>
                     </button>
+                    <p class="mt-3" style="font-size:0.82rem; color:#888;">
+                      You'll be redirected to the payment page.
+                      <span class="bilingual d-block">提交後將自動導向繳費頁面。</span>
+                    </p>
                   </div>
 
                 </form>
@@ -428,10 +466,11 @@
       });
     }
 
-    // Radio group validation (Role, Participation)
+    // Radio group validation (Role, Participation, Banquet)
     const radioGroups = [
       { name: 'role', message: 'Please select your role 請選擇身份' },
-      { name: 'participation', message: 'Please select participation type 請選擇參加場次' }
+      { name: 'participation', message: 'Please select participation type 請選擇參加場次' },
+      { name: 'banquet', message: 'Please select banquet option 請選擇是否參加晚宴' }
     ];
     const radioErrors = {};
     radioGroups.forEach(function(group) {
@@ -465,25 +504,29 @@
       });
     }, true);
 
-    // Late registration pricing
+    // Standard registration pricing
     const PRICES = {
-      both: { student: 2000, regular: 4500 },
-      nstc: { student: 0,    regular: 0    }
+      tswim:   { student: 2000, regular: 4500 },
+      nstc:    { student: 0,    regular: 0    },
+      both:    { student: 2000, regular: 4500 },
+      banquet: 1500
     };
 
-    document.querySelectorAll('.ticket-option').forEach(card => {
+    // Make ticket-option cards clickable
+    document.querySelectorAll('.ticket-option, .addon-option').forEach(card => {
       card.addEventListener('click', function(e) {
         if (e.target.tagName === 'INPUT') return;
-        var radio = this.querySelector('input[type="radio"]');
+        const radio = this.querySelector('input[type="radio"]');
         if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
       });
     });
 
+    // Highlight selected cards
     form.addEventListener('change', function(e) {
       if (e.target.type === 'radio') {
-        var group = e.target.name;
-        document.querySelectorAll('[name="' + group + '"]').forEach(function(r) {
-          var card = r.closest('.ticket-option');
+        const group = e.target.name;
+        document.querySelectorAll(`[name="${group}"]`).forEach(r => {
+          const card = r.closest('.ticket-option, .addon-option');
           if (card) card.classList.toggle('selected', r.checked);
         });
         updateSummary();
@@ -491,29 +534,55 @@
     });
 
     function updateSummary() {
-      var role = document.querySelector('input[name="role"]:checked');
-      var participation = document.querySelector('input[name="participation"]:checked');
+      const role = document.querySelector('input[name="role"]:checked')?.value;
+      const participation = document.querySelector('input[name="participation"]:checked')?.value;
+      const banquet = document.querySelector('input[name="banquet"]:checked')?.value;
 
-      var summaryRole = document.getElementById('summaryRole');
-      var summaryTotal = document.getElementById('summaryTotal');
+      const summaryRole = document.getElementById('summaryRole');
+      const summaryBanquet = document.getElementById('summaryBanquet');
+      const summaryTotal = document.getElementById('summaryTotal');
+      const banquetPriceEl = document.getElementById('banquetPrice');
+      const shuttleRow = document.getElementById('shuttleRow');
+
+      if (banquetPriceEl) banquetPriceEl.textContent = 'NT$1,500';
+      if (shuttleRow) shuttleRow.style.display = (banquet === 'yes') ? '' : 'none';
+
+      let regFee = 0;
+      let regLabel = '—';
+      let regZh = '';
 
       if (role && participation) {
-        var fee = PRICES[participation.value][role.value] || 0;
-        var roleLabel = role.value === 'student' ? 'Student (Late)' : 'Regular (Late)';
-        var roleZh = role.value === 'student' ? '學生（晚鳥）' : '一般（晚鳥）';
-        var partLabels = {
-          both: ['TSWIM + NSTC', '研討會＋工作坊'],
-          nstc: ['NSTC Workshop Only', '僅工作坊']
+        regFee = PRICES[participation][role] || 0;
+        const partLabels = {
+          tswim: ['TSWIM Conference', '研討會'],
+          nstc:  ['NSTC Workshop Only', '僅國科會工作坊'],
+          both:  ['TSWIM + NSTC Workshop', '研討會＋工作坊']
         };
-        var label = roleLabel + ' · ' + partLabels[participation.value][0];
-        var zhLabel = roleZh + '·' + partLabels[participation.value][1];
-        var priceText = fee > 0 ? 'NT$' + fee.toLocaleString() : 'Free 免費';
-
-        summaryRole.innerHTML = '<span>' + label + ' <span class="bilingual">' + zhLabel + '</span></span><span style="font-weight:600">' + priceText + '</span>';
-        summaryTotal.innerHTML = '<span>Total 合計</span><span>' + priceText + '</span>';
+        const roleLabel = role === 'student' ? 'Student' : 'Regular';
+        const roleZh = role === 'student' ? '學生' : '一般';
+        regLabel = `${roleLabel} · ${partLabels[participation][0]}`;
+        regZh = `${roleZh}·${partLabels[participation][1]}`;
+        const priceText = regFee > 0 ? `NT$${regFee.toLocaleString()}` : 'Free 免費';
+        summaryRole.innerHTML = `<span>${regLabel} <span class="bilingual">${regZh}</span></span><span style="font-weight:600">${priceText}</span>`;
       } else {
-        summaryRole.innerHTML = '<span>Registration</span><span>—</span>';
-        summaryTotal.innerHTML = '<span>Total 合計</span><span>—</span>';
+        summaryRole.innerHTML = `<span>Registration</span><span>—</span>`;
+      }
+
+      let banquetFee = 0;
+      if (banquet === 'yes') {
+        banquetFee = PRICES.banquet;
+        summaryBanquet.innerHTML = `<span>Banquet <span class="bilingual">晚宴</span></span><span style="font-weight:600">NT$${banquetFee.toLocaleString()}</span>`;
+      } else if (banquet === 'no') {
+        summaryBanquet.innerHTML = `<span>Banquet <span class="bilingual">晚宴</span></span><span style="color:#888">Not attending</span>`;
+      } else {
+        summaryBanquet.innerHTML = `<span>Banquet</span><span>—</span>`;
+      }
+
+      const total = regFee + banquetFee;
+      if (role && participation && banquet) {
+        summaryTotal.innerHTML = `<span>Total 合計</span><span>${total > 0 ? 'NT$' + total.toLocaleString() : 'Free 免費'}</span>`;
+      } else {
+        summaryTotal.innerHTML = `<span>Total 合計</span><span>—</span>`;
       }
     }
 
@@ -530,6 +599,7 @@
       btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
     });
   </script>
+  <script src="assets/js/ev.min.js?v=1.0.1"></script>
 
 </body>
 </html>
