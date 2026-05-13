@@ -17,7 +17,7 @@
 
 .program-schedule td,
 .program-schedule th {
-  border: 1px solid #000;
+  border: 1px solid #444;
   padding: 6px 8px;
   vertical-align: middle;
   font-size: 11pt;
@@ -33,7 +33,7 @@
   border-bottom: none;
 }
 .program-schedule .title-row.bottom-border td {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #444;
 }
 
 /* Spacer rows */
@@ -149,12 +149,18 @@
 .reg-fee-table td, .reg-fee-table th { font-size: 0.92rem; }
 .reg-fee-table tbody td { background: #fff; }
 
+/* Hide the empty corner cell (where row labels meet column headers) */
+.reg-fee-table .col-header th:first-child {
+  background: transparent;
+  border: none;
+}
+
 .reg-fee-table .reg-active-period {
-  background-color: color-mix(in srgb, #f6b26b, transparent 82%);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
   color: #b45309;
 }
 .reg-fee-table th.reg-active-period {
-  background-color: #f6b26b;
+  background-color: color-mix(in srgb, var(--accent-color), white 25%);
   color: #fff;
 }
 
