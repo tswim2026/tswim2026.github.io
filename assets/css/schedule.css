@@ -58,20 +58,22 @@
   font-weight: bold;
 }
 
-/* Session colors */
-.program-schedule .sess-a { background-color: #E2EFDA; text-align: center; }
-.program-schedule .sess-b { background-color: #FCE4D6; text-align: center; }
-.program-schedule .sess-c { background-color: #DDEBF7; text-align: center; }
+/* Session cells (no background — colors removed to avoid implying linkages between tracks) */
+.program-schedule .sess-a,
+.program-schedule .sess-b,
+.program-schedule .sess-c { text-align: center; }
 
 /* Keynote */
-.program-schedule .keynote { background-color: #FFF2CC; font-weight: bold; }
-.program-schedule .keynote-span { background-color: #FFF2CC; }
+.program-schedule .keynote { font-weight: bold; }
 
 /* Break / Lunch */
 .program-schedule .break { background-color: #EDEDED; }
 
 /* Ceremony / Remarks */
-.program-schedule .ceremony { background-color: #fff; text-align: center; }
+.program-schedule .ceremony { text-align: center; }
+
+/* NSTC Workshop events — highlighted in soft blue (placed last so it overrides .break/.ceremony) */
+.program-schedule .nstc-workshop { background-color: #DDEBF7; }
 
 /* Regular centered */
 .program-schedule .time-cell { text-align: center; white-space: nowrap; }
