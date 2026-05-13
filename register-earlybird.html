@@ -130,8 +130,8 @@
                 <div class="deadline-banner mb-4">
                   <i class="bi bi-clock"></i>
                   <div>
-                    <strong>Early bird deadline: June 12, 2026</strong>
-                    <span class="bilingual d-block" style="color:#bf360c">早鳥截止日：2026年6月12日</span>
+                    <strong>Early bird deadline: June 7, 2026</strong>
+                    <span class="bilingual d-block" style="color:#bf360c">早鳥截止日：2026年6月7日</span>
                   </div>
                 </div>
 
@@ -187,11 +187,11 @@
                         </div>
                       </div>
                       <div class="col-12 col-sm-6">
-                        <div class="ticket-option" data-role="faculty">
+                        <div class="ticket-option" data-role="regular">
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="roleFaculty" value="faculty">
-                            <label class="form-check-label w-100" for="roleFaculty">
-                              <span class="ticket-name">Faculty / Other <span class="bilingual">教師／其他</span></span>
+                            <input class="form-check-input" type="radio" name="role" id="roleRegular" value="regular">
+                            <label class="form-check-label w-100" for="roleRegular">
+                              <span class="ticket-name">Regular Participant <span class="bilingual">一般會員</span></span>
                               <div class="ticket-desc">Professor, researcher, professional<br><span class="bilingual">教授、研究員、業界人士</span></div>
                             </label>
                           </div>
@@ -211,7 +211,7 @@
                             <label class="form-check-label w-100" for="partBoth">
                               <span class="ticket-name">TSWIM + NSTC Workshop <span class="bilingual">研討會＋工作坊</span></span>
                               <div class="ticket-desc">Day 2: all activities + Day 3: all activities<br><span class="bilingual">第二天：所有活動＋第三天：所有活動</span></div>
-                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,000 / Faculty: NT$2,000</div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student 學生: NT$1,500 / Regular 一般: NT$3,500</div>
                             </label>
                           </div>
                         </div>
@@ -505,9 +505,9 @@
 
     // Early bird pricing
     const PRICES = {
-      tswim:   { student: 1000, faculty: 2000 },
-      nstc:    { student: 0,    faculty: 0    },
-      both:    { student: 1000, faculty: 2000 },
+      tswim:   { student: 1500, regular: 3500 },
+      nstc:    { student: 0,    regular: 0    },
+      both:    { student: 1500, regular: 3500 },
       banquet: 1500
     };
 
@@ -557,8 +557,8 @@
           nstc:  ['NSTC Workshop Only', '僅國科會工作坊'],
           both:  ['TSWIM + NSTC Workshop', '研討會＋工作坊']
         };
-        const roleLabel = role === 'student' ? 'Student (Early Bird)' : 'Faculty (Early Bird)';
-        const roleZh = role === 'student' ? '學生（早鳥）' : '教師（早鳥）';
+        const roleLabel = role === 'student' ? 'Student (Early Bird)' : 'Regular (Early Bird)';
+        const roleZh = role === 'student' ? '學生（早鳥）' : '一般（早鳥）';
         regLabel = `${roleLabel} · ${partLabels[participation][0]}`;
         regZh = `${roleZh}·${partLabels[participation][1]}`;
         const priceText = regFee > 0 ? `NT$${regFee.toLocaleString()}` : 'Free 免費';

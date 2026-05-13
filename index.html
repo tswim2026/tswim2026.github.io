@@ -32,7 +32,7 @@
   <link href="assets/css/main.css?v=1.0.14" rel="stylesheet">
 
   <!-- Schedule CSS (scoped under .program-schedule) -->
-  <link href="assets/css/schedule.css?v=1.0.5" rel="stylesheet">
+  <link href="assets/css/schedule.css?v=1.0.6" rel="stylesheet">
 
 </head>
 
@@ -54,6 +54,7 @@
           <li class="dropdown"><a href="#"><span>General Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#keynote-speakers">Keynote Speakers</a></li>
+              <li><a href="#registration-fee">Registration Fee</a></li>
               <li><a href="#program">Program</a></li>
               <li><a href="#committee">Committee</a></li>
               <li><a href="#travel-information">Travel Information</a></li>
@@ -280,50 +281,74 @@
             </ol>
           </div>
 
-          <!-- Registration -->
-          <div class="content-section">
-            <div id="registration" class="action-card registration-banner">
-              <h3><i class="bi bi-person-plus me-2"></i>Registration</h3>
-              <p class="action-card-status">To be announced</p>
-              <a href="#" class="btn btn-md rounded-pill fw-bold btn-accent-outline disabled d-none"><i class="bi bi-box-arrow-up-right me-2"></i>Register</a>
-            </div>
-
-            <!-- Hidden Registration Details (for future use) -->
-            <div class="d-none">
-            <p class="text-center">Early Registration (by June 15) is strongly encouraged, because it ensures receipts ready for you on-site. If you register on-site, the official receipt-making process may take two weeks.</p>
-            <div class="container my-4">
-              <div class="row g-3 justify-content-center">
-                <div class="col-12">
-                  <div class="note-soft p-4 d-flex">
-                    <div>
-                      <div class="title fw-semibold">Student for TSWIM and/or NSTC Management II Division Research Workshop ( included banquet )</div>
-                      <div class="price mt-1">NT$1200/person</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="note-soft p-4 d-flex">
-                    <div>
-                      <div class="title fw-semibold">Faculty for TSWIM and/or NSTC Management II Division Research Workshop ( included banquet )</div>
-                      <div class="price mt-1">NT$2000/person</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="note-soft p-4 d-flex">
-                    <div>
-                      <div class="title fw-semibold">Participation without attending the banquet</div>
-                      <div class="price mt-1">Free</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
     </section><!-- /Information Section -->
+
+    <!-- Registration Fee Section -->
+    <section id="registration-fee" class="registration-fee section light-background">
+      <div class="container">
+        <div class="tos-header text-center">
+          <h2>Registration Fee</h2>
+        </div>
+
+        <div class="program-schedule-wrap">
+        <div class="program-schedule reg-fee-table">
+          <table>
+            <colgroup>
+              <col style="width:18%;">
+              <col style="width:21%;">
+              <col style="width:21%;">
+              <col style="width:21%;">
+              <col style="width:19%;">
+            </colgroup>
+            <thead>
+              <tr class="col-header">
+                <th></th>
+                <th data-period="earlybird">Early Bird<br><small style="font-weight:400;">by June 7</small></th>
+                <th data-period="late">Late Registration<br><small style="font-weight:400;">by June 21</small></th>
+                <th data-period="onsite">On-site Registration<br><small style="font-weight:400;">** Cash only</small></th>
+                <th data-period="banquet">Banquet Fee<br><small style="font-weight:400;">(Ambassador Hotel Hsinchu)<br>by June 21</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-semibold">Regular Participant</td>
+                <td data-period="earlybird"><strong>NT$3,500</strong></td>
+                <td data-period="late"><strong>NT$4,500</strong></td>
+                <td data-period="onsite"><strong>NT$4,500</strong><br><small>(TSWIM talks only)</small></td>
+                <td data-period="banquet"><strong>NT$1,500</strong><br><small>(additional fee)</small></td>
+              </tr>
+              <tr>
+                <td class="fw-semibold">Student</td>
+                <td data-period="earlybird"><strong>NT$1,500</strong></td>
+                <td data-period="late"><strong>NT$2,000</strong></td>
+                <td data-period="onsite"><strong>NT$2,000</strong><br><small>(TSWIM talks only)</small></td>
+                <td data-period="banquet"><strong>NT$1,500</strong><br><small>(additional fee)</small></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-center mt-3 mb-0" style="font-size:0.92rem; color:#555;"><i class="bi bi-info-circle me-1"></i>"NSTC workshop" events are free</p>
+        </div>
+        </div>
+      </div>
+    </section><!-- /Registration Fee Section -->
+
+    <script>
+    (function() {
+      var today = new Date();
+      var ebEnd  = new Date('2026-06-07T23:59:59+08:00');
+      var ltEnd  = new Date('2026-06-21T23:59:59+08:00');
+      var period;
+      if (today <= ebEnd) period = 'earlybird';
+      else if (today <= ltEnd) period = 'late';
+      else period = 'onsite';
+
+      document.querySelectorAll('.reg-fee-table [data-period="' + period + '"]').forEach(function(cell) {
+        cell.classList.add('reg-active-period');
+      });
+    })();
+    </script>
 
     <!-- Keynote Speakers Section -->
     <section id="keynote-speakers" class="keynote-speakers section">

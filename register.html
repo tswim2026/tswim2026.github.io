@@ -131,8 +131,8 @@
                 <div class="info-banner mb-4">
                   <i class="bi bi-info-circle"></i>
                   <div>
-                    <strong>Standard registration: June 13 – June 22, 2026</strong>
-                    <span class="bilingual d-block">一般報名期間：2026年6月13日至6月22日</span>
+                    <strong>Standard registration: June 8 – June 21, 2026</strong>
+                    <span class="bilingual d-block">一般報名期間：2026年6月8日至6月21日</span>
                   </div>
                 </div>
 
@@ -188,11 +188,11 @@
                         </div>
                       </div>
                       <div class="col-12 col-sm-6">
-                        <div class="ticket-option" data-role="faculty">
+                        <div class="ticket-option" data-role="regular">
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="roleFaculty" value="faculty">
-                            <label class="form-check-label w-100" for="roleFaculty">
-                              <span class="ticket-name">Faculty / Other <span class="bilingual">教師／其他</span></span>
+                            <input class="form-check-input" type="radio" name="role" id="roleRegular" value="regular">
+                            <label class="form-check-label w-100" for="roleRegular">
+                              <span class="ticket-name">Regular Participant <span class="bilingual">一般會員</span></span>
                               <div class="ticket-desc">Professor, researcher, professional<br><span class="bilingual">教授、研究員、業界人士</span></div>
                             </label>
                           </div>
@@ -212,7 +212,7 @@
                             <label class="form-check-label w-100" for="partBoth">
                               <span class="ticket-name">TSWIM + NSTC Workshop <span class="bilingual">研討會＋工作坊</span></span>
                               <div class="ticket-desc">Day 2: all activities + Day 3: all activities<br><span class="bilingual">第二天：所有活動＋第三天：所有活動</span></div>
-                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student: NT$1,500 / Faculty: NT$3,500</div>
+                              <div class="mt-1" style="color:#333; font-size:0.95rem;">Student 學生: NT$2,000 / Regular 一般: NT$4,500</div>
                             </label>
                           </div>
                         </div>
@@ -506,9 +506,9 @@
 
     // Standard registration pricing
     const PRICES = {
-      tswim:   { student: 1500, faculty: 3500 },
-      nstc:    { student: 0,    faculty: 0    },
-      both:    { student: 1500, faculty: 3500 },
+      tswim:   { student: 2000, regular: 4500 },
+      nstc:    { student: 0,    regular: 0    },
+      both:    { student: 2000, regular: 4500 },
       banquet: 1500
     };
 
@@ -558,8 +558,8 @@
           nstc:  ['NSTC Workshop Only', '僅國科會工作坊'],
           both:  ['TSWIM + NSTC Workshop', '研討會＋工作坊']
         };
-        const roleLabel = role === 'student' ? 'Student' : 'Faculty';
-        const roleZh = role === 'student' ? '學生' : '教師';
+        const roleLabel = role === 'student' ? 'Student' : 'Regular';
+        const roleZh = role === 'student' ? '學生' : '一般';
         regLabel = `${roleLabel} · ${partLabels[participation][0]}`;
         regZh = `${roleZh}·${partLabels[participation][1]}`;
         const priceText = regFee > 0 ? `NT$${regFee.toLocaleString()}` : 'Free 免費';

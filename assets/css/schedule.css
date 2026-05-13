@@ -140,3 +140,25 @@
     font-size: 9pt;
   }
 }
+
+/*--------------------------------------------------------------
+# Registration Fee Table
+# Extends .program-schedule with period highlighting.
+--------------------------------------------------------------*/
+.reg-fee-table table { max-width: 960px; margin: 0 auto; }
+.reg-fee-table td, .reg-fee-table th { font-size: 0.92rem; }
+.reg-fee-table tbody td { background: #fff; }
+
+.reg-fee-table .reg-active-period {
+  background-color: color-mix(in srgb, #f6b26b, transparent 82%);
+  color: #b45309;
+}
+.reg-fee-table th.reg-active-period {
+  background-color: #f6b26b;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .reg-fee-table td, .reg-fee-table th { font-size: 9pt; padding: 4px 5px; }
+  .reg-fee-table table { min-width: 650px; }
+}
