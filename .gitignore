@@ -11,8 +11,7 @@ node_modules/
 
 # AI tooling
 CLAUDE.local.md
-.claude/*
-!.claude/CLAUDE.md
+.claude/settings.local.json
 
 # Cross-machine sync manifests (e.g. Sideways)
 .swcopy
