@@ -6,7 +6,7 @@ _inbox/
 _data/
 *.log
 *.tmp
-assets/
+assets/js/ev.js
 node_modules/
 
 # AI tooling
