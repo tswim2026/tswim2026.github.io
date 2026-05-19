@@ -2209,21 +2209,26 @@ section,
 # Sponsors Section
 --------------------------------------------------------------*/
 .sponsors {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.sponsors .tos-header {
+  margin-bottom: 2.5rem;
 }
 
 .sponsors .sponsor-item {
-  padding: 1.5rem;
+  padding: 2rem 2.5rem;
   text-align: center;
   height: 100%;
   background-color: var(--surface-color);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100px;
 }
 
 .sponsors .sponsor-item img {
@@ -2243,13 +2248,19 @@ section,
 
 @media (max-width: 1199px) {
   .sponsors .sponsor-item {
-    padding: 1.25rem;
+    padding: 1.5rem 1.75rem;
   }
 }
 
 @media (max-width: 767px) {
+  .sponsors {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   .sponsors .sponsor-item {
-    padding: 1rem;
+    padding: 1.25rem;
+    min-height: 80px;
   }
 }
 
