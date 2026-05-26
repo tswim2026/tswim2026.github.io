@@ -991,6 +991,59 @@ section,
   text-decoration: underline;
 }
 
+/* Call for Papers - collapsible */
+#information-cfp {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.cfp-collapse {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cfp-summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.cfp-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cfp-summary h3 {
+  margin: 0;
+}
+
+.cfp-status-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #888;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.15rem 0.75rem;
+}
+
+.cfp-summary::after {
+  content: "▶ Show details";
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.cfp-collapse[open] .cfp-summary::after {
+  content: "▼ Hide details";
+}
+
 /* Call for Papers - Paper Types */
 .cfp-intro {
   max-width: 600px;

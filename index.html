@@ -29,10 +29,10 @@
   <noscript><link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"></noscript>
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css?v=1.0.14" rel="stylesheet">
+  <link href="assets/css/main.css?v=1.0.15" rel="stylesheet">
 
   <!-- Schedule CSS (scoped under .program-schedule) -->
-  <link href="assets/css/schedule.css?v=1.0.6" rel="stylesheet">
+  <link href="assets/css/schedule.css?v=1.0.7" rel="stylesheet">
 
 </head>
 
@@ -50,9 +50,11 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#registration">Registration</a></li>
           <li><a href="#travel-accommodation">Travel &amp; Accommodation</a></li>
-          <li class="dropdown"><a href="#"><span>General Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#"><span>Program Information</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
+              <li><a href="#information-cfp">Call for Papers</a></li>
               <li><a href="#keynote-speakers">Keynote Speakers</a></li>
+              <li><a href="#pre-tswim">Pre-TSWIM Activities</a></li>
               <li><a href="#program">Program</a></li>
               <li><a href="#committee">Committee</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -306,7 +308,11 @@
         <div class="tos-content">
 
           <div id="call-for-papers" class="content-section">
-            <h3 class="text-center">Call for Papers</h3>
+            <details class="cfp-collapse">
+            <summary class="cfp-summary">
+              <h3 class="text-center">Call for Papers</h3>
+              <span class="cfp-status-badge">Submissions Closed</span>
+            </summary>
             <p class="text-center cfp-intro">We welcome submissions at different stages of the research journey.<br>Please select the format that best fits your current status:</p>
 
             <div class="paper-types-container">
@@ -397,6 +403,7 @@
                 </div>
               </div>
             </div>
+            </details>
           </div>
 
           <div id="disclaimer" class="content-section pb-4 d-none">
@@ -640,11 +647,98 @@
       </div>
     </section><!-- /International Advisors Section -->
 
+    <!-- Pre-TSWIM Activities Section -->
+    <section id="pre-tswim" class="program section">
+      <div class="container">
+        <div class="tos-header text-center">
+          <h2>Pre-TSWIM Activities</h2>
+          <p>Events held in the run-up to TSWIM 2026.</p>
+        </div>
+
+        <div class="pretswim-day">
+          <div class="pretswim-schedule">
+        <div class="program-schedule-wrap">
+        <div class="program-schedule">
+          <table>
+            <colgroup>
+              <col class="col-time">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+              <col class="col-sess-sub">
+            </colgroup>
+
+            <!-- ========== JUNE 03 ========== -->
+            <tr class="day-header" style="height:19px;">
+              <td colspan="8">June 03, 2026 (Wednesday) — Research Seminar &amp; Paper Development Workshop</td>
+            </tr>
+            <tr class="col-header" style="height:19.5px;">
+              <td>Time</td>
+              <td colspan="7">Activity</td>
+            </tr>
+
+            <!-- Registration -->
+            <tr style="height:24px;">
+              <td class="time-cell">13:00-13:20</td>
+              <td colspan="7" class="center">Registration</td>
+            </tr>
+
+            <!-- Opening -->
+            <tr style="height:24px;">
+              <td class="time-cell">13:20-13:30</td>
+              <td colspan="7" class="center">Opening</td>
+            </tr>
+
+            <!-- Talk -->
+            <tr style="height:56px;">
+              <td class="time-cell">13:30-14:30</td>
+              <td colspan="7" class="ceremony multiline"><strong>Effective Academic Presentation and Communication at Conferences</strong>
+Prof. JJ Po-An Hsieh (Georgia State University)</td>
+            </tr>
+
+            <!-- Break -->
+            <tr style="height:20px;">
+              <td class="time-cell">14:30-14:40</td>
+              <td colspan="7" class="break">Break</td>
+            </tr>
+
+            <!-- Research Sharing and Discussion -->
+            <tr style="height:56px;">
+              <td class="time-cell">14:40-17:40</td>
+              <td colspan="7" class="ceremony multiline"><strong>Junior Faculty / Student Research Sharing and Discussion</strong>
+Moderators: Prof. JJ Po-An Hsieh (Georgia State University) &amp; Prof. Hsiao-Hui Lee (National Chengchi University)</td>
+            </tr>
+
+          </table>
+        </div><!-- /.program-schedule -->
+        </div><!-- /.program-schedule-wrap -->
+          </div><!-- /.pretswim-schedule -->
+
+          <aside class="pretswim-poster">
+            <a href="assets/poster/pre-tswim-2026-06-03-poster.pdf" target="_blank" rel="noopener">
+              <img src="assets/poster/pre-tswim-2026-06-03-poster-thumb.png" alt="Research Seminar &amp; Paper Development Workshop — event poster (PDF)" loading="lazy">
+              <span class="pretswim-poster-caption"><i class="bi bi-file-earmark-pdf me-1"></i>View full poster (PDF)</span>
+            </a>
+          </aside>
+        </div><!-- /.pretswim-day -->
+
+        <div class="text-center mt-4" style="font-size:0.95rem;">
+          <p class="mb-1"><strong>Registration deadline:</strong> May 31, 2026 &nbsp;&middot;&nbsp; <a href="https://reurl.cc/yO0VXq" target="_blank" rel="noopener">Register here</a></p>
+          <p class="mb-1"><strong>Contact:</strong> Prof. Chih-Hung Peng &middot; Assistant Fang (<a href="mailto:fanghc@ntu.edu.tw">fanghc@ntu.edu.tw</a>)</p>
+          <p class="mb-0" style="font-size:0.85rem; opacity:0.75;">Hosted by the Department of Information Management, National Taiwan University and NSTC Management Division II &middot; Co-organized by TSWIM 2026</p>
+        </div>
+
+      </div>
+    </section><!-- /Pre-TSWIM Activities Section -->
+
     <!-- Program Section -->
     <section id="program" class="program section light-background">
       <div class="container">
         <div class="tos-header text-center">
-          <h2>Program</h2>
+          <h2>TSWIM Program</h2>
         </div>
 
         <div class="program-schedule-wrap">
