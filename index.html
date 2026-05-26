@@ -16,11 +16,10 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
 
-  <!-- Fonts - Preload for faster loading -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Fonts - Self-hosted (no external requests to Google; see assets/css/fonts.css) -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/roboto-v51-latin_latin-ext-regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-v24-latin_latin-ext-700.woff2" crossorigin>
+  <link href="assets/css/fonts.css?v=1.0.0" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +28,7 @@
   <noscript><link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"></noscript>
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css?v=1.0.15" rel="stylesheet">
+  <link href="assets/css/main.css?v=1.0.16" rel="stylesheet">
 
   <!-- Schedule CSS (scoped under .program-schedule) -->
   <link href="assets/css/schedule.css?v=1.0.7" rel="stylesheet">
@@ -1200,6 +1199,9 @@ Moderators: Prof. JJ Po-An Hsieh (Georgia State University) &amp; Prof. Hsiao-Hu
     <div class="container">
       <div class="copyright text-center ">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">TSWIM 2026</strong> <span>All Rights Reserved</span></p>
+        <p class="footer-legal mb-0">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+        </p>
       </div>
 
     </div>
@@ -1211,6 +1213,94 @@ Moderators: Prof. JJ Po-An Hsieh (Georgia State University) &amp; Prof. Hsiao-Hu
 
   <!-- Preloader -->
   <div id="preloader"></div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h4 mb-0" id="privacyModalLabel">Privacy Policy</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body privacy-policy">
+          <p class="text-muted"><small>Last updated: 27 May 2026</small></p>
+
+          <p>This Privacy Policy explains how the TSWIM 2026 workshop handles personal
+          information collected through this website. We are committed to protecting your
+          privacy and processing your data lawfully, including in accordance with the EU
+          General Data Protection Regulation (GDPR) for visitors in the European Economic Area.</p>
+
+          <h3 class="h6 mt-4">1. Who we are</h3>
+          <p>TSWIM 2026 is hosted by the <strong>Institute of Service Science, National
+          Tsing Hua University (NTHU)</strong>, Hsinchu, Taiwan, which acts as the data
+          controller for personal data collected via this site. For any privacy-related
+          questions or requests, contact us at
+          <a href="mailto:tswim2026@iss.nthu.edu.tw">tswim2026@iss.nthu.edu.tw</a>.</p>
+
+          <h3 class="h6 mt-4">2. What we collect</h3>
+          <p>We only collect the information you voluntarily provide when you register for
+          the workshop. Depending on the registration form, this may include:</p>
+          <ul>
+            <li>Your name (English and, optionally, Chinese)</li>
+            <li>Email address and phone number</li>
+            <li>Affiliation and department</li>
+            <li>Attendee role and participation type (e.g. TSWIM and/or NSTC workshop)</li>
+            <li>Banquet attendance, shuttle, and meal preferences (including dietary needs you choose to share)</li>
+            <li>Accessibility requirements or other notes you choose to provide</li>
+            <li>NTHU parking voucher request</li>
+            <li>Receipt title and tax ID, where you request an invoice</li>
+          </ul>
+
+          <h3 class="h6 mt-4">3. How we use it and our legal basis</h3>
+          <p>We use this information solely to administer your participation in TSWIM 2026 —
+          to process your registration and payment, plan catering and logistics, issue
+          receipts, and communicate with you about the event. The legal basis is the
+          performance of your registration request and our legitimate interest in organising
+          the workshop; where you provide dietary or accessibility information, this is used
+          only to accommodate your needs.</p>
+
+          <h3 class="h6 mt-4">4. Who processes your data</h3>
+          <p>Registration data submitted through this website is transmitted to and stored
+          using <strong>Google Workspace services</strong> (Google Apps Script and Google
+          Sheets/Drive), which act as our data processor. Payment is handled by our payment
+          provider, <strong>ECPay</strong>, which processes your transaction details under
+          its own privacy terms. We do not sell or share your personal data with any other
+          third parties, except where required by law.</p>
+
+          <h3 class="h6 mt-4">5. Cookies and tracking</h3>
+          <p>This website does <strong>not</strong> use cookies, and it does not run any
+          analytics or advertising trackers. We do not store any information on your device,
+          and we do not build visitor profiles. Web fonts are served directly from this
+          website (self-hosted), so no font or tracking requests are sent to Google when you
+          browse the site.</p>
+
+          <h3 class="h6 mt-4">6. External links</h3>
+          <p>Some pages link to external services such as Google Maps (for venue and hotel
+          directions) and link-shortening services. These are only contacted if you click
+          the link, at which point the respective provider's privacy policy applies.</p>
+
+          <h3 class="h6 mt-4">7. Data retention</h3>
+          <p>We keep your registration data only for as long as needed to administer the
+          workshop and to meet any applicable accounting or legal obligations.</p>
+
+          <h3 class="h6 mt-4">8. Your rights</h3>
+          <p>You may request access to, correction of, or deletion of your personal data, and
+          you may object to or request restriction of its processing. To exercise these
+          rights, email us at
+          <a href="mailto:tswim2026@iss.nthu.edu.tw">tswim2026@iss.nthu.edu.tw</a>.
+          If you are in the EEA, you also have the right to lodge a complaint with your local
+          data protection authority.</p>
+
+          <h3 class="h6 mt-4">9. Changes to this policy</h3>
+          <p>We may update this Privacy Policy from time to time. Any changes will be posted
+          on this page with a revised "last updated" date.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

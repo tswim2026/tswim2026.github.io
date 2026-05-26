@@ -653,6 +653,21 @@ h6 {
   text-align: center;
 }
 
+.footer .footer-legal {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.footer .footer-legal a {
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.footer .footer-legal a:hover {
+  color: var(--accent-color);
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
