@@ -1035,28 +1035,23 @@ section,
   margin: 0;
 }
 
-.cfp-status-badge {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #888;
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 999px;
-  padding: 0.15rem 0.75rem;
-}
-
 .cfp-summary::after {
-  content: "▶ Show details";
+  content: "▶ Show paper and session format details";
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--accent-color);
 }
 
 .cfp-collapse[open] .cfp-summary::after {
-  content: "▼ Hide details";
+  content: "▼ Hide paper and session format details";
+}
+
+/* Submission status banner lives in the summary so it's always visible,
+   whether the Call for Papers section is collapsed or expanded */
+.cfp-summary-banner {
+  align-self: stretch;
+  margin-top: 0.75rem;
+  cursor: default;
 }
 
 /* Call for Papers - Paper Types */
