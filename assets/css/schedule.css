@@ -215,6 +215,10 @@
   text-decoration: none;
 }
 
+.pretswim-poster a.pretswim-poster-extra {
+  margin-top: 1.2rem;
+}
+
 .pretswim-poster img {
   display: block;
   width: 100%;
