@@ -63,6 +63,33 @@
 .program-schedule .sess-b,
 .program-schedule .sess-c { text-align: center; }
 
+/* Paper/RI session detail cells: session title + chair/discussants + paper-title list.
+   Top-aligned and left-aligned so the stacked detail reads cleanly; rows auto-size. */
+.program-schedule .paper-row td { vertical-align: top; }
+.program-schedule .detail-cell { text-align: left; padding: 8px 10px; }
+.program-schedule .sess-title  { font-weight: bold; text-align: center; margin-bottom: 2px; }
+.program-schedule .sess-theme  { font-size: 0.82rem; font-weight: 500; text-align: center; line-height: 1.3; color: #1F4E79; margin: 0 0 7px; }
+.program-schedule .sess-meta   { font-size: 0.82rem; line-height: 1.3; color: #374151; }
+.program-schedule .sess-room   { font-weight: 600; color: #4b5563; }
+.program-schedule .sess-papers { margin: 8px 0 0; padding: 7px 0 0 1.05em; font-size: 0.76rem; line-height: 1.35; color: #111; border-top: 1px solid #e5e7eb; }
+.program-schedule .sess-papers li { margin-bottom: 3px; }
+.program-schedule .ri-heading  { text-align: center; font-weight: bold; border-bottom-color: #ffffff; }
+/* The "NSTC Workshop - Research Incubator" banner already frames these cards, so the
+   per-card "Incubator N" title is a lighter, muted heading — the blue theme carries the weight */
+.program-schedule .ri-cell .sess-title { font-weight: 600; color: #6b7280; }
+/* Soften the dividers between the six RI cells so they read as cards on the blue ground */
+.program-schedule .ri-cell     { border-color: #ffffff; }
+/* …but keep a dark border below the bottom row — Coffee Break is a separate activity */
+.program-schedule .ri-row-last .ri-cell { border-bottom-color: #444; }
+
+/* Soften only the two inner dividers between the three parallel paper sessions
+   (sess-a|b and sess-b|c) so they read as one grouped triptych with a dark outer
+   frame. Left edge of A, right edge of C, and top/bottom stay #444. Scoped with
+   :not(.ri-cell) so the RI cards keep their white-on-blue dividers. */
+.program-schedule .paper-row .sess-a.detail-cell:not(.ri-cell) { border-right-color: #b9bfc6; }
+.program-schedule .paper-row .sess-b.detail-cell:not(.ri-cell) { border-left-color: #b9bfc6; border-right-color: #b9bfc6; }
+.program-schedule .paper-row .sess-c.detail-cell:not(.ri-cell) { border-left-color: #b9bfc6; }
+
 /* Keynote */
 .program-schedule .keynote { font-weight: bold; }
 
