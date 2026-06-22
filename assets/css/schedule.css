@@ -195,7 +195,7 @@
      "show titles" link, so the table stays compact. Tapping the link swaps
      the theme for the full title list (and back). Desktop is unaffected:
      the theme/toggle are hidden there and the titles show as before. */
-  .program-schedule .sess-theme--collapse { display: block; }
+  .program-schedule .sess-theme--collapse { display: block; margin-top: 10px; text-align: left; }
 
   .program-schedule .sess-titles-toggle {
     display: inline-block;
