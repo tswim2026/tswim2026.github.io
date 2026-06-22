@@ -4,6 +4,7 @@ _wip/
 _dev/
 _inbox/
 _data/
+_plans/
 *.log
 *.tmp
 assets/js/ev.js
