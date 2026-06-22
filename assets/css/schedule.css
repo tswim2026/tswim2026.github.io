@@ -69,6 +69,10 @@
 .program-schedule .detail-cell { text-align: left; padding: 8px 10px; }
 .program-schedule .sess-title  { font-weight: bold; text-align: center; margin-bottom: 2px; }
 .program-schedule .sess-theme  { font-size: 0.82rem; font-weight: 500; text-align: center; line-height: 1.3; color: #1F4E79; margin: 0 0 7px; }
+/* Paper-session theme line + its show/hide-titles toggle: desktop shows full
+   titles, so both are hidden here and only surface in the mobile media query. */
+.program-schedule .sess-theme--collapse,
+.program-schedule .sess-titles-toggle { display: none; }
 .program-schedule .sess-meta   { font-size: 0.82rem; line-height: 1.3; color: #374151; }
 .program-schedule .sess-room   { font-weight: 600; color: #4b5563; }
 .program-schedule .sess-papers { margin: 8px 0 0; padding: 7px 0 0 1.05em; font-size: 0.76rem; line-height: 1.35; color: #111; border-top: 1px solid #e5e7eb; }
@@ -186,6 +190,30 @@
   .program-schedule .col-header th {
     font-size: 9pt;
   }
+
+  /* Mobile: paper-session cells collapse to just the theme + a per-session
+     "show titles" link, so the table stays compact. Tapping the link swaps
+     the theme for the full title list (and back). Desktop is unaffected:
+     the theme/toggle are hidden there and the titles show as before. */
+  .program-schedule .sess-theme--collapse { display: block; }
+
+  .program-schedule .sess-titles-toggle {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 0;
+    background: none;
+    border: 0;
+    font-family: inherit;
+    font-size: 0.74rem;
+    color: #1F4E79;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  /* Paper titles hidden by default on mobile; revealed when expanded. */
+  .program-schedule .sess-papers { display: none; }
+  .program-schedule .titles-shown .sess-theme--collapse { display: none; }
+  .program-schedule .titles-shown .sess-papers { display: block; }
 }
 
 /*--------------------------------------------------------------
