@@ -914,6 +914,16 @@ section,
 }
 
 @media (max-width: 768px) {
+  /* Clear the fixed header so the logo doesn't overlap the hero title
+     when the title wraps to multiple lines on narrow/zoomed viewports. */
+  .hero {
+    padding-top: 110px;
+  }
+
+  .header .logo img.navbar-logo {
+    max-height: 52px;
+  }
+
   .hero h2 {
     font-size: 32px;
   }
