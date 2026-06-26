@@ -75,7 +75,7 @@
 .program-schedule .sess-titles-toggle { display: none; }
 .program-schedule .sess-meta   { font-size: 0.82rem; line-height: 1.3; color: #374151; }
 .program-schedule .sess-room   { font-weight: 600; color: #4b5563; }
-.program-schedule .sess-papers { margin: 8px 0 0; padding: 7px 0 0 1.05em; font-size: 0.76rem; line-height: 1.35; color: #111; border-top: 1px solid #e5e7eb; }
+.program-schedule .sess-papers { margin: 8px 0 0; padding: 7px 0 0 1.05em; font-size: 0.76rem; line-height: 1.35; color: #4b5563; border-top: 1px solid #e5e7eb; }
 .program-schedule .sess-papers li { margin-bottom: 3px; }
 .program-schedule .ri-heading  { text-align: center; font-weight: bold; border-bottom-color: #ffffff; }
 /* The "NSTC Workshop - Research Incubator" banner already frames these cards, so the
@@ -83,7 +83,13 @@
 .program-schedule .ri-cell .sess-title { font-weight: 600; color: #6b7280; }
 /* Soften the dividers between the six RI cells so they read as cards on the blue ground */
 .program-schedule .ri-cell     { border-color: #ffffff; }
-/* …but keep a dark border below the bottom row — Coffee Break is a separate activity */
+/* …but keep the OUTER frame of the RI block dark; only the inner dividers stay white.
+   Set the outer edges explicitly rather than relying on border-collapse tie-breaking:
+   when a white RI border meets the adjacent dark time-/loc-cell border, Chrome lets the
+   dark border win but Firefox lets the white one win and paints over the outer frame. */
+.program-schedule .paper-row .sess-a.ri-cell { border-left-color: #444; }
+.program-schedule .paper-row .sess-c.ri-cell { border-right-color: #444; }
+/* …and keep a dark border below the bottom row — Coffee Break is a separate activity */
 .program-schedule .ri-row-last .ri-cell { border-bottom-color: #444; }
 
 /* Soften only the two inner dividers between the three parallel paper sessions
