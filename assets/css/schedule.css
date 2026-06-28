@@ -78,6 +78,7 @@
 .program-schedule .sess-papers { margin: 8px 0 0; padding: 7px 0 0 1.05em; font-size: 0.76rem; line-height: 1.35; color: #4b5563; border-top: 1px solid #e5e7eb; }
 .program-schedule .sess-papers li { margin-bottom: 3px; }
 .program-schedule .ri-heading  { text-align: center; font-weight: bold; border-bottom-color: #ffffff; }
+.program-schedule .ri-heading .ri-note { display: inline-block; margin-top: 2px; font-weight: normal; font-size: 0.8rem; color: #374151; }
 /* The "NSTC Workshop - Research Incubator" banner already frames these cards, so the
    per-card "Incubator N" title is a lighter, muted heading — the blue theme carries the weight */
 .program-schedule .ri-cell .sess-title { font-weight: 600; color: #6b7280; }
