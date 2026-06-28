@@ -14,7 +14,7 @@ git status
 git log --oneline -3
 ```
 
-If there are uncommitted changes, ask the user whether to commit them first (use `/ray-commit` conventions) or abort.
+If there are uncommitted changes, commit them (use `/ray-commit` conventions) — no need to ask first. Releasing is the user's go-ahead to commit and push.
 
 ## Step 2: Identify changed CSS/JS files
 
@@ -36,21 +36,24 @@ If no CSS/JS files changed at all, skip to Step 4.
 
 The site uses query string versioning on CSS/JS links in `index.html` to bust browser caches. Each file has its own version.
 
-Current files and their link patterns in `index.html`:
+Current files and their link patterns:
 
-| File | Pattern |
-|---|---|
-| `assets/css/main.css` | `main.css?v=X.Y.Z` |
-| `assets/css/schedule.css` | `schedule.css?v=X.Y.Z` |
-| `assets/js/main.js` | `main.js?v=X.Y.Z` |
+| File | Pattern | Referenced in |
+|---|---|---|
+| `assets/css/main.css` | `main.css?v=X.Y.Z` | `index.html` |
+| `assets/css/schedule.css` | `schedule.css?v=X.Y.Z` | `index.html` |
+| `assets/js/main.js` | `main.js?v=X.Y.Z` | `index.html` |
+| `assets/js/ev.min.js` | `ev.min.js?v=X.Y.Z` | `index.html`, `register-earlybird.html`, `register-late.html` |
 
-For each changed CSS/JS file, find its current version in `index.html` and increment the patch number (e.g., `1.0.2` → `1.0.3`).
+For each changed CSS/JS file, find its current version and increment the patch number (e.g., `1.0.1` → `1.0.2`). Bump the version in **every** file that references it (e.g., `ev.min.js` lives in three files — keep them in sync). To find all references: `grep -rn "ev.min.js" *.html`.
 
 Only bump versions for files that actually changed — don't bump everything.
 
 After bumping, if the version bump itself is the only uncommitted change, amend the previous commit rather than creating a new one. If there are other uncommitted changes mixed in, create a separate commit: `chore: bump cache versions for release`.
 
 ## Step 4: Push to main
+
+Push automatically — do **not** ask for confirmation. Invoking this skill is the user's explicit go-ahead to deploy.
 
 ```bash
 git push origin main
@@ -73,4 +76,4 @@ If `gh` is not available or the check fails, just inform the user that changes h
 - Never push without checking for cache busting first — stale CSS/JS is the most common issue after deploys
 - The `index.html` content itself doesn't need cache busting (HTML is not cached as aggressively by browsers)
 - If only `index.html` changed (no CSS/JS), no version bumps are needed
-- Always confirm with the user before pushing — this deploys to the live conference website
+- Push automatically without asking for confirmation — invoking the release skill IS the go-ahead. (This deploys to the live conference website, so still report clearly what was pushed.)
